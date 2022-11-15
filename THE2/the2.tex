@@ -1,0 +1,133 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{float}
+\usepackage{amsmath}
+
+\usepackage[hmargin=3cm,vmargin=6.0cm]{geometry}
+%\topmargin=0cm
+\topmargin=-2cm
+\addtolength{\textheight}{6.5cm}
+\addtolength{\textwidth}{2.0cm}
+%\setlength{\leftmargin}{-5cm}
+\setlength{\oddsidemargin}{0.0cm}
+\setlength{\evensidemargin}{0.0cm}
+
+%misc libraries goes here
+\usepackage{amsmath}
+\usepackage{amssymb}
+%\usepackage{mathabx}
+
+\newcommand\+{\mkern2mu}
+\let\eps\varepsilon
+
+\begin{document}
+
+\section*{Student Information } 
+%Write your full name and id number between the colon and newline
+%Put one empty space character after colon and before newline
+Full Name : Murat Bolu \\
+Id Number : 2521300 \\
+
+% Write your answers below the section tags
+\section*{Answer 1}
+
+A function $f: A \rightarrow B$ is surjective if and only if $\forall b \in B, \; \exists \+ a \in A$ such that $f(a) = b$. \\
+A function $f: A \rightarrow B$ is injective if and only if $\forall a_1 \in A, \; \forall a_2 \in A$, $f(a_1) = f(a_2) \rightarrow a_1 = a_2$. \\
+%The same statement can be expressed by its contrapositive: $\forall a_1 \in A, \; \forall a_2 \in A$, $a_1 \neq a_2 \rightarrow f(a_1) \neq f(a_2)$. \\
+The set of nonnegative real numbers $\overline{\mathbb{R}}^+ = \{0\} \cup \mathbb{R}^+$.
+
+\paragraph{a)} % For f_1
+\begin{itemize}
+\item $f_1$ is not surjective since $-1 \in \mathbb{R}$, and there does not exists an $a$ such that $f_1(a) = -1$, since $\forall x \in \mathbb{R}, \; x^2 \geq 0 > -1$.
+\item $f_1$ is not injective since $f_1(2) = f_1(-2) = 4$, and $2 \neq -2$.
+\end{itemize}
+
+\paragraph{b)} % For f_2
+\begin{itemize}
+\item $f_2$ is not surjective since $-1 \in \mathbb{R}$, and there does not exists an $a$ such that $f_2(a) = -1$, since $\forall x \in \mathbb{R}, \; x^2 \geq 0 > -1$. \\
+\\
+\item $f_2$ is injective since $\forall a_1 \in \overline{\mathbb{R}}^+, \; \forall a_2 \in \overline{\mathbb{R}}^+$:
+\begin{align*}
+f_2(a_1) = f_2(a_2) &\rightarrow a_1 \+ ^2 = a_2 \+ ^2 \\
+&\rightarrow a_1 \+ ^2 - a_2 \+ ^2 = 0 \\
+&\rightarrow (a_1 - a_2)(a_1 + a_2) = 0
+\end{align*}
+\noindent
+This means that either $a_1 - a_2 = 0 \rightarrow a_1 = a_2$ or $a_1 + a_2 = 0$.
+If $a_1 + a_2 = 0$, $a_1 = a_2 = 0$ since $a_1 \in \{0\} \cup \mathbb{R}^+$ and $a_2 \in \{0\} \cup \mathbb{R}^+$.
+I will prove this by contradiction.
+Suppose that $a_1$ is not zero but a positive real number.
+This would mean that $a_1 + a_2$ is strictly greater than $a_2$: $\; a_1 + a_2 > a_2$.
+That would mean zero is strictly greater than $a_2$: $\; 0 > a_2$.
+That is not possible since $a_2 \in \{0\} \cup \mathbb{R}^+$ and every value of $a_2$ is equal to or greater than zero.
+This leads to a contradiction, therefore $a_1$ must be zero since $a_1 \in \{0\} \cup \mathbb{R}^+$.
+Since $a_1 = 0$, $a_1 + a_2 = 0 \rightarrow 0 + a_2 = 0 \rightarrow a_2 = 0$.
+Therefore, if $a_1 + a_2 = 0$, $a_1 = a_2$.
+We have already shown that if $a_1 - a_2 = 0$, $a_1 = a_2$.
+Therefore, $\forall a_1 \in \overline{\mathbb{R}}^+, \; \forall a_2 \in \overline{\mathbb{R}}^+, \; f_2(a_1) = f_2(a_2) \rightarrow a_1 = a_2$.
+\end{itemize}
+
+\newpage
+
+\paragraph{c)}
+\begin{itemize}
+\item $f_3$ is surjective since $\forall b \in \overline{\mathbb{R}}^+, \; \exists \+ a \in \mathbb{R}$ such that $a = \sqrt{b}$ and $f_3(\sqrt{b}) = (\sqrt{b})^2 = \vert \+ b \+ \vert = b$ since $b \geq 0$ since $b \in \{0\} \cup \mathbb{R}^+$.
+Therefore, $\forall b \in \overline{\mathbb{R}}^+, \; \exists \+ a = \sqrt{b} \in \mathbb{R}$ such that $f_3(a) = b$.
+\item $f_3$ is not injective since $f_3(2) = f_3(-2) = 4$, and $2 \neq -2$.
+\end{itemize}
+
+\paragraph{d)}
+\begin{itemize}
+\item $f_4$ is surjective since $\forall b \in \overline{\mathbb{R}}^+, \; \exists \+ a \in \overline{\mathbb{R}}^+$ such that $a = \sqrt{b}$ and $f_4(\sqrt{b}) = (\sqrt{b})^2 = \vert \+ b \+ \vert = b$ since $b \geq 0$ since $b \in \{0\} \cup \mathbb{R}^+$.
+Therefore, $\forall b \in \overline{\mathbb{R}}^+, \; \exists \+ a = \sqrt{b} \in \overline{\mathbb{R}}^+$ such that $f_4(a) = b$.
+\item $f_4$ is injective since $\forall a_1 \in \overline{\mathbb{R}}^+, \; \forall a_2 \in \overline{\mathbb{R}}^+$:
+\begin{align*}
+f_4(a_1) = f_4(a_2) &\rightarrow a_1 \+ ^2 = a_2 \+ ^2 \\
+&\rightarrow a_1 \+ ^2 - a_2 \+ ^2 = 0 \\
+&\rightarrow (a_1 - a_2)(a_1 + a_2) = 0
+\end{align*}
+This means that either $a_1 - a_2 = 0 \rightarrow a_1 = a_2$ or $a_1 + a_2 = 0$.
+If $a_1 + a_2 = 0$, $a_1 = a_2 = 0$ since $a_1 \in \{0\} \cup \mathbb{R}^+$ and $a_2 \in \{0\} \cup \mathbb{R}^+$.
+The proof is similar to above.
+\end{itemize}
+
+\section*{Answer 2}
+\paragraph{a)}
+Since $f: A \subset \mathbb{Z} \subset \mathbb{R} \rightarrow \mathbb{R}$, we can take $n$ and $m$ to be $1$ and apply the definition of continuity.
+\begin{align*}
+\forall \eps \in \mathbb{R}^+ \; \exists \+ \delta \in \mathbb{R}^+ \; \forall x \in A \; &(\Vert x - x_0 \Vert < \delta \rightarrow \Vert f(x) - f(x_0) \Vert < \eps)
+\end{align*}
+The Euclidean norm in $\mathbb{R}^n = \mathbb{R}$ simply becomes the absolute value of the number itself.
+\begin{align*}
+\forall \eps \in \mathbb{R}^+ \; \exists \+ \delta \in \mathbb{R}^+ \; \forall x \in A \; &(\vert \+ x - x_0 \+ \vert < \delta \rightarrow \vert \+ f(x) - f(x_0) \+ \vert < \eps)
+\end{align*}
+I claim that for all $\eps$, taking $\delta = \frac{1}{2}$ works.
+\begin{align*}
+\forall \eps \in \mathbb{R}^+ \; \forall x \in A \; &(\vert \+ x - x_0 \+ \vert < \tfrac{1}{2} \rightarrow \vert \+ f(x) - f(x_0) \+ \vert < \eps)
+\end{align*}
+Either $x = x_0$ or $x \neq x_0$.
+In the first case $x = x_0 \rightarrow f(x) = f(x_0) \rightarrow f(x) - f (x_0) = 0$ which would make the right hand side of the implication true since $\vert \+ f(x) - f(x_0) \+ \vert = \vert \+ 0 \+ \vert = 0 < \eps, \; \forall \eps \in \mathbb{R}^+$ and therefore the result true.
+Taking any $\delta$ would work, such as $\delta = \frac{1}{2}$.
+In the second case the minimum of $\vert \+ x - x_0 \+ \vert$ is $1$ since $x, x_0 \in \mathbb{Z}$.
+In that case taking $\delta = \frac{1}{2}$ would work since the left hand side of the equation will always be false, and the result will always be true.
+
+
+\paragraph{b)}
+
+\section*{Answer 3}
+\paragraph{a)}
+\paragraph{b)}
+
+\section*{Answer 4}
+\paragraph{a)} % Compare your first and second functions
+\paragraph{b)} % Compare your second and third functions
+\paragraph{c)}
+\paragraph{d)}
+\paragraph{e)}
+\paragraph{f)}
+
+\section*{Answer 5}
+\paragraph{a)}
+\paragraph{b)}
+
+\end{document}
