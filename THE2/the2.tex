@@ -94,28 +94,91 @@ The proof is similar to above.
 \section*{Answer 2}
 \paragraph{a)}
 Since $f: A \subset \mathbb{Z} \subset \mathbb{R} \rightarrow \mathbb{R}$, we can take $n$ and $m$ to be $1$ and apply the definition of continuity.
-\begin{align*}
-\forall \eps \in \mathbb{R}^+ \; \exists \+ \delta \in \mathbb{R}^+ \; \forall x \in A \; &(\Vert x - x_0 \Vert < \delta \rightarrow \Vert f(x) - f(x_0) \Vert < \eps)
-\end{align*}
-The Euclidean norm in $\mathbb{R}^n = \mathbb{R}$ simply becomes the absolute value of the number itself.
-\begin{align*}
-\forall \eps \in \mathbb{R}^+ \; \exists \+ \delta \in \mathbb{R}^+ \; \forall x \in A \; &(\vert \+ x - x_0 \+ \vert < \delta \rightarrow \vert \+ f(x) - f(x_0) \+ \vert < \eps)
-\end{align*}
-I claim that for all $\eps$, taking $\delta = \frac{1}{2}$ works.
-\begin{align*}
-\forall \eps \in \mathbb{R}^+ \; \forall x \in A \; &(\vert \+ x - x_0 \+ \vert < \tfrac{1}{2} \rightarrow \vert \+ f(x) - f(x_0) \+ \vert < \eps)
-\end{align*}
-Either $x = x_0$ or $x \neq x_0$.
-In the first case $x = x_0 \rightarrow f(x) = f(x_0) \rightarrow f(x) - f (x_0) = 0$ which would make the right hand side of the implication true since $\vert \+ f(x) - f(x_0) \+ \vert = \vert \+ 0 \+ \vert = 0 < \eps, \; \forall \eps \in \mathbb{R}^+$ and therefore the result true.
-Taking any $\delta$ would work, such as $\delta = \frac{1}{2}$.
-In the second case the minimum of $\vert \+ x - x_0 \+ \vert$ is $1$ since $x, x_0 \in \mathbb{Z}$.
-In that case taking $\delta = \frac{1}{2}$ would work since the left hand side of the equation will always be false, and the result will always be true.
+\begin{gather*}
+\forall \eps \in \mathbb{R}^+ \; \exists \+ \delta \in \mathbb{R}^+ \; \forall x \in A \; (\Vert x - x_0 \Vert < \delta \rightarrow \Vert f(x) - f(x_0) \Vert < \eps)
+\end{gather*}
+The Euclidean norm in $\mathbb{R}^n = \mathbb{R}$ simply becomes the absolute value of the number itself, since $\Vert \+ x \+ \Vert = \sqrt{\scriptstyle\sum_{i = 1}^{n} x_i \+ ^2} = \sqrt{\scriptstyle\sum_{i = 1}^{1}x_i \+ ^2} = \sqrt{x_1 \+ ^2} = \vert \+ x_1 \+ \vert$.
+\begin{gather*}
+\forall \eps \in \mathbb{R}^+ \; \exists \+ \delta \in \mathbb{R}^+ \; \forall x \in A \; (\vert \+ x - x_0 \+ \vert < \delta \rightarrow \vert \+ f(x) - f(x_0) \+ \vert < \eps)
+\end{gather*}
+I claim that for all $\eps$, taking $\delta < 1$ works, which would mean $\vert \+ x - x_0 \+ \vert$ must also be less than one.
+\begin{gather*} %\forall \eps \in \mathbb{R}^+ \; 
+\forall x \in A \; (\vert \+ x - x_0 \+ \vert < 1 \rightarrow \vert \+ f(x) - f(x_0) \+ \vert < \eps)
+\end{gather*}
+In that case, either $x = x_0$ or $x \neq x_0$.
+\begin{itemize}
+\item In the first case, $x = x_0 \rightarrow f(x) = f(x_0) \rightarrow f(x) - f (x_0) = 0$.
+Additionally, $x = x_0 \rightarrow x - x_0 = 0$.
+Since the both sides of the implication are true, the result is true.
+%which would make the right hand side of the implication true since $\vert \+ f(x) - f(x_0) \+ \vert = \vert \+ 0 \+ \vert = 0 < \eps, \; \forall \eps \in \mathbb{R}^+$ and therefore the result true.
+\item In the second case, $\vert \+ x - x_0 \+ \vert$ must take positive integer values like $\{1, 2, 3, \dotsc\}$ since $x, x_0 \in \mathbb{Z}$.
+In that case $\vert \+ x - x_0 \+ \vert < 1$ is always false, and the result is vacuously true.
+%In that case taking $\delta = \frac{1}{2}$ would work since the left hand side of the equation will always be false, and the result will always be true.
+\end{itemize}
+Therefore, $\delta < 1$ satisfies the definition of continuity for all $\eps$, $x$ and $x_0$.
+Since we assumed nothing about $x_0$, the function $f$ is continuous for all $x_0$ in $A$.
 
+\newpage
 
 \paragraph{b)}
+Since $f: \mathbb{R} \rightarrow \mathbb{Z} \subset \mathbb{R}$, we can take $n$ and $m$ to be $1$ and apply the definition of continuity.
+\begin{gather*}
+\forall \eps \in \mathbb{R}^+ \; \exists \+ \delta \in \mathbb{R}^+ \; \forall x \in \mathbb{R} \; (\Vert x - x_0 \Vert < \delta \rightarrow \Vert f(x) - f(x_0) \Vert < \eps)
+\end{gather*}
+Similarly, the Euclidean norm in $\mathbb{R}^n = \mathbb{R}$ simply becomes the absolute value of the number itself, since $\Vert \+ x \+ \Vert = \sqrt{\scriptstyle\sum_{i = 1}^{n} x_i \+ ^2} = \sqrt{\scriptstyle\sum_{i = 1}^{1}x_i \+ ^2} = \sqrt{x_1 \+ ^2} = \vert \+ x_1 \+ \vert$.
+\begin{gather*}
+\forall \eps \in \mathbb{R}^+ \; \exists \+ \delta \in \mathbb{R}^+ \; \forall x \in \mathbb{R} \; (\vert \+ x - x_0 \+ \vert < \delta \rightarrow \vert \+ f(x) - f(x_0) \+ \vert < \eps)
+\end{gather*}
+The question is to show that $f$ being a constant function is a necessary and sufficient condition for the function $f: \mathbb{R} \rightarrow \mathbb{Z}$ to be continuous (at every point).
+This means that the truth of one implies the other.
+\begin{itemize}
+\item The first part is to show that $f$ being a constant function is a sufficient condition for the function $f: \mathbb{R} \rightarrow \mathbb{Z}$ to be continuous.
+That means $f$ being a constant function implies $f: \mathbb{R} \rightarrow \mathbb{Z}$ is continuous.
+Since $f$ is constant, $f(x) = f(x_0)$ for all $x \in \mathbb{R}$ and $x_0 \in \mathbb{R}$, which would imply $\vert \+ f(x) - f(x_0) \+ \vert = \vert \+ 0 \+ \vert = 0 < e$ for all $\eps \in \mathbb{R}^+$.
+Since the right hand side of the implication is true for all $\eps$, $x$ and $x_0$, and it is independent of $\delta$, it is always true.
+$\delta$ can be chosen arbitrarily.
+
+\item The second part is to show that $f$ being a constant function is a necessary condition for the function $f: \mathbb{R} \rightarrow \mathbb{Z}$ to be continuous.
+That means $f: \mathbb{R} \rightarrow \mathbb{Z}$ being continuous implies $f$ is a constant function.
+The proof will involve Intermediate Value Theorem, which says that a continuous function $f$ whose domain contains the interval $[a, b]$ takes on all values between $f(a)$ and $f(b)$ in that interval.
+I will pick two numbers and show that $f(a) = f(b)$ for all $a$ and $b$.
+\begin{itemize}
+\item If $a$ and $b$ are equal, $f(a) = f(b)$ trivially by the virtue of $f$ being a function.
+\item If $a$ and $b$ are different, assume that $f(a) \neq f(b)$.
+That would mean $f$ needs to take a non-integer value between $f(a)$ and $f(b)$, since there always exist (uncountably infinitely many) real numbers between any two different integers.
+Since the codomain of $f$ is the set of integers, that is not possible, thus $f(a)$ cannot be different from $f(b)$.
+\end{itemize}
+Since we assumed nothing about $a$ and $b$, they can be chosen arbitrarily among all real numbers, showing that $f$ has the same value throughout its domain, i.e. $f$ is constant.
+
+%Let $a$ be an arbitrary point on the domain of $f$, which is $\mathbb{R}$.
+%We will assume nothing about this point, and show that $f(x) = f(a)$ for all $x$, which means any two points picked from the domain of $f$ is equal, meaning $f$ is constant.
+%Since $f$ is continuous at its domain, we can write the definition of continuity for $a$.
+%\begin{gather*}
+%\forall \eps \in \mathbb{R}^+ \; \exists \+ \delta \in \mathbb{R}^+ \; \forall x \in \mathbb{R} \; (\vert \+ x - a \+ \vert < \delta \rightarrow \vert \+ f(x) - f(a) \+ \vert < \eps)
+%\end{gather*}
+%Since this premise is true and $\eps$ is existentially quantified, we can pick an arbitrarily small $\eps$.
+%I will take $\eps$ to be less than one.
+%In that case, $\vert \+ x - a \+ \vert < \delta$ implies $\vert \+ f(x) - f(a) \+ \vert < 1 \rightarrow \vert \+ f(x) - f(a) \+ \vert = 0$ since $f: \mathbb{R} \rightarrow \mathbb{Z}$ and $\vert \+ f(x) - f(a) \+ \vert$ can only take non-negative integer values like $\{0, 1, 2, \dotsc\}$.
+%That would mean $f(x) - f(a) = 0 \rightarrow f(x) = f(a)$ for all $x$.
+\end{itemize}
+
+\newpage
 
 \section*{Answer 3}
 \paragraph{a)}
+Proof by mathematical induction:
+\begin{enumerate}
+\item Basis: $X_2 = A_1 \times A_2$ is countable since $A_1 = \{a_1, a_2, \dotsc \}$ and $A_2 = \{b_1, b_2, \dotsc \}$ can be enumerated by the sum of indices of $a_i$ and $b_j$.
+\begin{align*}
+(a_1, b_1) && i + j = 2 \\
+(a_1, b_2), (a_2, b_1) && i + j = 3 \\
+(a_1, b_3), (a_2, b_2), (a_3, b_1) && i + j = 4 \\
+\dotsc && \dotsc \\
+(a_1, b_{n-1}), (a_2, b_{n-2}), \dotsc, (a_{n-2}, b_2), (a_{n-1}, b_1) && i + j = n\\
+\dotsc && \dotsc \\
+\end{align*}
+\item Inductive Step: Assuming $X_k = A_1 \times A_2 \times \dotsc \times A_k$ is countable, I will show that $X_{k+1} = A_1 \times A_2 \times \dotsc \times A_k \times A_{k+1}$ is countable.
+\end{enumerate}
 \paragraph{b)}
 
 \section*{Answer 4}
