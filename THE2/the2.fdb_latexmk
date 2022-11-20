@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1668966303 "/Users/muratbolu/CENG223/THE2/the2.tex" "the2.pdf" "the2" 1668966304
-  "/Users/muratbolu/CENG223/THE2/the2.tex" 1668966302 18159 c5840a8b429891de228d79b52a47b515 ""
+["pdflatex"] 1668972721 "/Users/muratbolu/CENG223/THE2/the2.tex" "the2.pdf" "the2" 1668972722
+  "/Users/muratbolu/CENG223/THE2/the2.tex" 1668972720 20901 5380250df9db3ce8b4ec3fdbb62ae964 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/jknappen/ec/tcrm0700.tfm" 1136768653 1536 73da8e8f1d2a4c957d51ca133585586b ""
@@ -67,8 +67,8 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1666779844 4609062 08c49d5e671d25747d0647f95b82ad6d ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1666779866 3058851 af99a269310c00f40a138664ac86fb46 ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
-  "the2.aux" 1668966304 1264 5a3f8384916cade38397691009f9041c "pdflatex"
-  "the2.tex" 1668966302 18159 c5840a8b429891de228d79b52a47b515 ""
+  "the2.aux" 1668972722 1264 526f015fdc7a6f65c5162e36eb507dcb "pdflatex"
+  "the2.tex" 1668972720 20901 5380250df9db3ce8b4ec3fdbb62ae964 ""
   (generated)
   "the2.aux"
   "the2.log"

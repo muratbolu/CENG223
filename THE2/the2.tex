@@ -234,7 +234,7 @@ Since for $k \geq 1$ both of these functions are always positive, we can get rid
 &\leq 5 \cdot 5 \cdot \dotso \cdot 5 && \forall x \geq 1 \\
 &\leq 5^x && \forall x \geq 1
 \end{align*}
-Before these four proofs I will have to prove that $\log_2{x} \leq \frac{x}{51}, \; \forall x \geq 1$, $\log_2{x} \leq x, \; \forall x \geq 1$, and $\log_2{x} \leq \sqrt{x}, \; \forall x \geq 16$.
+%Before these four proofs I will have to prove that $\log_2{x} \leq \frac{x}{51}, \; \forall x \geq 500$, $\log_2{x} \leq x, \; \forall x \geq 1$, and $\log_2{x} \leq \sqrt{x}, \; \forall x \geq 16$. All of them are similar.
 \paragraph{c)}
 \begin{gather*}
 O(2^n) \ni (n^{51}+n^{49}) \leftrightarrow \exists \+ c \; \exists \+ k \; (\forall x \geq k \; (\vert n^{51}+n^{49} \vert \leq c \cdot \vert 2^x \vert))
@@ -288,6 +288,46 @@ Since for $k \geq 16$ both of these functions are always positive, we can get ri
 
 \section*{Answer 5}
 \paragraph{a)}
+\begin{align*}
+\text{gdc}(94, 134) &= \text{gdc}(134, 94) \\
+&= \text{gdc}(94, 134 \bmod 94) \\
+&= \text{gdc}(94, 40) \\
+&= \text{gdc}(40, 94 \bmod 40) \\
+&= \text{gdc}(40, 14) \\
+&= \text{gdc}(14, 40 \bmod 14) \\
+&= \text{gdc}(14, 12) \\
+&= \text{gdc}(12, 14 \bmod 12) \\
+&= \text{gdc}(12, 2) \\
+&= \text{gdc}(2, 12 \bmod 2) \\
+&= \text{gdc}(2, 0) \\
+&= 2
+\end{align*}
 \paragraph{b)}
+We will have to show it both ways.
+First, assume Goldbach's conjecture and reach to the conclusion given in the question.
+Second, assume the conclusion given in the question is correct and reach Goldbach's conjecture.
+\begin{enumerate}
+\item Assuming Goldbach's conjecture, where $n = p_1 + p_2$, $n = 2k$, $k \in \{2, 3, 4, \dotso\}$, and $p_1$ and $p_2$ are primes.
+Then, we can add $2$, a prime number, making the equation $n + 2 = p_1 + p_2 + 2$.
+Since $n$ is even, $n + 2$ is even, therefore $n + 2 = 2l$, $l \in \{3, 4, 5, \dotso\}$.
+This shows that every even integer greater than $5$ can be written as a sum of three primes.
+Or, we can add $3$, a prime number, making the equation $n + 3 = p_1 + p_2 + 3$.
+Since $n$ is even, $n + 3$ is odd, therefore $n + 3 = 2m + 1$, $m \in \{3, 4, 5, \dotso\}$.
+Therefore, every odd integer greater than $5$ can be written as a sum of three primes.
+Therefore, every integer greater than $5$ can be written as a sum of three primes.
+\item Assuming that every integer greater than $5$ can be written as a sum of three primes, where $n = p_1 + p_2 + p_3$, $n \in \{6, 7, 8, \dotso\}$ and $p_1$, $p_2$ and $p_3$ are primes.
+The only even prime is $2$, so if one of $p_i$'s are $2$, $n$ must be even, since the sum of an even number, an odd number and an odd number is an even number.
+Without loss of generality, we can assume that $p_3 = 2$.
+Then, we can subtract $2$, making the equation $n - 2 = p_1 + p_2$.
+Since $n$ is even, $n - 2$ is even, therefore $n - 2 = 2k$, $k \in \{2, 3, 4, \dotso\}$.
+If all three primes are odd, then $n$ must be odd, since the sum of three odd numbers is odd.
+Additionally, since the smallest odd prime is $3$, n is at least $9$.
+Since all $p_i$'s are odd, we can sum any two of them to get an even number.
+Without loss of generality, we can choose $p_2$ and $p_3$.
+Every number greater than 5 can be written as a sum of three primes, and since our primes are at least $3$ and $3$, every sum of $p_2$ and $p_3$ can be written as a sum of three primes.
+Since the sum is even, one of the primes must be $2$, since only the sum of one even number and two odd numbers can make an even number, remembering the fact that $2$ is the only prime number.
+Therefore, $n = p_1 + p_4 + p_5 + 2$.
+We can subtract $3$, making the equation $n - 3 = p_1 + p_4 + p_5 - 1$.
+\end{enumerate}
 
 \end{document}
