@@ -16,6 +16,9 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 %\usepackage{mathabx}
+\usepackage[symbol]{footmisc}
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
 
 \newcommand\+{\mkern2mu}
 \let\eps\varepsilon
@@ -189,12 +192,99 @@ Proof by mathematical induction:
 \paragraph{b)}
 
 \section*{Answer 4}
+I will first show that for functions $f, g,$ and $h$, if $f \in O(g)$ and $g \in O(h)$, then $f \in O(h)$.
+\begin{align*}
+f \in O(g) &\leftrightarrow \exists \+ c_1 \; \exists \+ k_1 \; (\forall x \geq k_1 \; (\vert f(x) \vert \leq c_1 \cdot \vert g(x) \vert)) \\
+g \in O(h) &\leftrightarrow \exists \+ c_2 \; \exists \+ k_2 \; (\forall x \geq k_2 \; (\vert g(x) \vert \leq c_2 \cdot \vert h(x) \vert)) \\
+f \in O(h) &\leftrightarrow \exists \+ c_3 \; \exists \+ k_3 \; (\forall x \geq k_3 \; (\vert f(x) \vert \leq c_3 \cdot \vert h(x) \vert))
+\end{align*}
+For $x$ values bigger than both $k_1$ and $k_2$, both equations are satisfied.
+We can multiply the second equation by $c_1$.
+\begin{align*}
+(f \in O(g)) \land (g \in O(h)) \leftrightarrow& \; \exists \+ c_1 \; \exists \+ k_1 \; \exists \+ c_2 \; \exists \+ k_2 \; \forall x \\
+&(((x \geq k_1) \land (x \geq k_2)) \rightarrow (\vert f(x) \vert \leq c_1 \cdot \vert g(x) \vert \leq c_1 \cdot c_2 \cdot \vert h(x) \vert))
+\end{align*}
+Therefore, there exists a $c_3$ value such that $c_3 = c_1 \cdot c_2$ and there exists a $k_3$ value such that $k_3 = \text{max}\{k_1, k_2\}$ that makes $\vert f(x) \vert \leq c_3 \cdot \vert h(x) \vert$ for all $x$ values greater than $k_3$.
+\begin{align*}
+(f \in O(g)) \land (g \in O(h)) &\leftrightarrow \exists \+ c_3 \; \exists \+ k_3 \; (\forall x \geq k_3 \; (\vert f(x) \vert \leq c_3 \cdot \vert h(x) \vert)) \\
+(f \in O(g)) \land (g \in O(h)) &\leftrightarrow f \in O(h)
+\end{align*}
 \paragraph{a)} % Compare your first and second functions
+\begin{gather*}
+O((n!)^2) \ni (5^n) \leftrightarrow \exists \+ c \; \exists \+ k \; (\forall x \geq k \; (\vert 5^x \vert \leq c \cdot \vert (x!)^2 \vert))
+\end{gather*}
+Let $c = \frac{5^5}{5!}$ and $k = 6$.
+Since for $k \geq 6$ both of these functions are always positive, we can get rid of absolute value signs.
+\begin{align*}
+5^x &\leq 5^5 \cdot 5^{x-5} && \forall x \geq 6 \\
+&\leq 5^5 \cdot (5 \cdot 5 \cdot \dotso \cdot 5) && \forall x \geq 6 \\
+&\leq 5^5 \cdot (6 \cdot 7 \cdot \dotso \cdot x) && \forall x \geq 6 \\
+&\leq 5^5 \cdot \tfrac{x!}{5!} && \forall x \geq 6 \\
+&\leq \tfrac{5^5}{5!} \cdot x! \cdot x! && \forall x \geq 6 \\
+&\leq \tfrac{5^5}{5!} \cdot (x!)^2 && \forall x \geq 6
+\end{align*}
 \paragraph{b)} % Compare your second and third functions
+\begin{gather*}
+O(5^n) \ni (2^n) \leftrightarrow \exists \+ c \; \exists \+ k \; (\forall x \geq k \; (\vert 2^x \vert \leq c \cdot \vert 5^x \vert))
+\end{gather*}
+Let $c = 1$ and $k = 1$.
+Since for $k \geq 1$ both of these functions are always positive, we can get rid of absolute value signs.
+\begin{align*}
+2^x &\leq 2 \cdot 2 \cdot \dotso \cdot 2 && \forall x \geq 1 \\
+&\leq 5 \cdot 5 \cdot \dotso \cdot 5 && \forall x \geq 1 \\
+&\leq 5^x && \forall x \geq 1
+\end{align*}
+Before these four proofs I will have to prove that $\log_2{x} \leq \frac{x}{51}, \; \forall x \geq 1$, $\log_2{x} \leq x, \; \forall x \geq 1$, and $\log_2{x} \leq \sqrt{x}, \; \forall x \geq 16$.
 \paragraph{c)}
+\begin{gather*}
+O(2^n) \ni (n^{51}+n^{49}) \leftrightarrow \exists \+ c \; \exists \+ k \; (\forall x \geq k \; (\vert n^{51}+n^{49} \vert \leq c \cdot \vert 2^x \vert))
+\end{gather*}
+Let $c = 2$ and $k = 500$.
+Since for $k \geq 500$ both of these functions are always positive, we can get rid of absolute value signs.
+\begin{align*}
+x^{51}+x^{49} &\leq x^{51}+x^{51} && \forall x \geq 500 \\
+&\leq 2 \cdot x^{51} && \forall x \geq 500 \\
+&\leq 2 \cdot 2^{\log_2{(x^{51})}} && \forall x \geq 500 \\
+&\leq 2 \cdot 2^{51 \cdot \log_2{x}} && \forall x \geq 500 \\
+&\leq 2 \cdot 2^{51 \cdot \frac{x}{51}\footnotemark} && \forall x \geq 500 \\
+&\leq 2 \cdot 2^{x} && \forall x \geq 500
+\end{align*}
+\footnotetext{Since $\log_2{x} \leq \frac{x}{51}, \; \forall x \geq 500$.}
 \paragraph{d)}
+\begin{gather*}
+O(n^{51}+n^{49}) \ni (n^{50}) \leftrightarrow \exists \+ c \; \exists \+ k \; (\forall x \geq k \; (\vert n^{50} \vert \leq c \cdot \vert n^{51}+n^{49} \vert))
+\end{gather*}
+Let $c = 1$ and $k = 1$.
+Since for $k \geq 1$ both of these functions are always positive, we can get rid of absolute value signs.
+\begin{align*}
+x^{50} &\leq x^{51} && \forall x \geq 1 \\
+&\leq x^{51}+x^{49} && \forall x \geq 1
+\end{align*}
+For these two proofs I am assuming $\log{n}$ is of base $2$, however, proofs are similar for different bases.
 \paragraph{e)}
+\begin{gather*}
+O(n^{50}) \ni (\sqrt{n} \cdot \log{n}) \leftrightarrow \exists \+ c \; \exists \+ k \; (\forall x \geq k \; (\vert \sqrt{n} \cdot \log{n} \vert \leq c \cdot \vert n^{50} \vert))
+\end{gather*}
+Let $c = 1$ and $k = 1$.
+Since for $k \geq 1$ both of these functions are always positive, we can get rid of absolute value signs.
+\begin{align*}
+\sqrt{x} \cdot \log{x} &\leq \sqrt{x} \cdot x\footnotemark && \forall x \geq 1 \\
+&\leq x^{\frac{1}{2}} \cdot x && \forall x \geq 1 \\
+&\leq x^{\frac{3}{2}} && \forall x \geq 1 \\
+&\leq x^{50} && \forall x \geq 1
+\end{align*}
+\footnotetext{Since $\log{x} \leq x, \; \forall x \geq 1$.}
 \paragraph{f)}
+\begin{gather*}
+O(\sqrt{n} \cdot \log{n}) \ni (\log{n})^2 \leftrightarrow \exists \+ c \; \exists \+ k \; (\forall x \geq k \; (\vert (\log{n})^2 \vert \leq c \cdot \vert \sqrt{n} \cdot \log{n} \vert))
+\end{gather*}
+Let $c = 1$ and $k = 16$.
+Since for $k \geq 16$ both of these functions are always positive, we can get rid of absolute value signs.
+\begin{align*}
+(\log{x})^2 &\leq (\log{x}) \cdot (\log{x}) && \forall x \geq 16 \\
+&\leq \sqrt{x}\footnotemark \cdot \log{x} && \forall x \geq 16
+\end{align*}
+\footnotetext{Since $\log{x} \leq \sqrt{x}, \; \forall x \geq 16$.}
 
 \section*{Answer 5}
 \paragraph{a)}
