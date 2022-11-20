@@ -168,16 +168,23 @@ Since we assumed nothing about $a$ and $b$, they can be chosen arbitrarily among
 \paragraph{a)}
 Proof by mathematical induction:
 \begin{enumerate}
-\item Basis: $X_2 = A_1 \times A_2$ is countable since $A_1 = \{a_1, a_2, \dotsc \}$ and $A_2 = \{b_1, b_2, \dotsc \}$ can be enumerated by the sum of indices of $a_i$ and $b_j$.
+\item Basis: $X_2 = A_1 \times A_2$ is countable since $A_1 = \{a_{11}, a_{12}, \dotsc \}$ and $A_2 = \{a_{21}, a_{22}, \dotsc \}$ can be enumerated by the sum of $i$ and $j$ in indices of $a_{1i}$ and $a_{2j}$.
 \begin{align*}
-(a_1, b_1) && i + j = 2 \\
-(a_1, b_2), (a_2, b_1) && i + j = 3 \\
-(a_1, b_3), (a_2, b_2), (a_3, b_1) && i + j = 4 \\
+(a_{11}, a_{21}) && i + j = 2 \\
+(a_{11}, a_{22}), (a_{12}, a_{21}) && i + j = 3 \\
+(a_{11}, a_{23}), (a_{12}, a_{22}), (a_{13}, a_{21}) && i + j = 4 \\
 \dotsc && \dotsc \\
-(a_1, b_{n-1}), (a_2, b_{n-2}), \dotsc, (a_{n-2}, b_2), (a_{n-1}, b_1) && i + j = n\\
+(a_{11}, a_{2(n-1)}), (a_{12}, a_{2(n-2)}), \dotsc, (a_{1(n-2)}, a_{22}), (a_{1(n-1)}, a_{21}) && i + j = n\\
 \dotsc && \dotsc \\
 \end{align*}
 \item Inductive Step: Assuming $X_k = A_1 \times A_2 \times \dotsc \times A_k$ is countable, I will show that $X_{k+1} = A_1 \times A_2 \times \dotsc \times A_k \times A_{k+1}$ is countable.
+%Let $A_1 = \{a_{11}, a_{12}, \dotsc\}$, $A_2 = \{a_{21}, a_{22}, \dotsc\}$, $\dotsc$, $A_k = \{a_{k1}, a_{k2}, \dotsc\}$.
+%Let $i_\xi$ be the indices where the elements are $a_{1i_\xi}, a_{2i_\xi}, \dotsc, a_{ki_\xi}$, the sum of indices are $\sum_{\xi = 1}^{k} = n$ and $\xi \in \{1, 2, \dotsc, k\}$.
+%Then $X_k = \{(a_{11}, a_{21}, \dotsc), (a_{12}, a_{21}, \dotsc), \dotsc\}$ where the elements are grouped by the sum of their indices are:
+%\begin{align*}
+%(a_{11}, a_{21}, \dotsc, a_{k1}) && &\sum_{\xi = 1}^{k} i_\xi = k \\
+%(a_{12}, a_{21}, \dotsc, a_{k1}), (a_{11}, a_{22}, \dotsc, a_{k1}), \dotsc, (a_{11}, a_{21}, \dotsc, a_{k2}) && &\sum_{\xi = 1}^{k} i_\xi = k + 1
+%\end{align*}
 \end{enumerate}
 \paragraph{b)}
 
