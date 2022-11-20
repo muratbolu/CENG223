@@ -190,6 +190,23 @@ Proof by mathematical induction:
 %\end{align*}
 \end{enumerate}
 \paragraph{b)}
+Let $S = X \times X \times \dotso$ be the set of infinite countable product of the set $X = \{0, 1\}$.
+Then, every element of S can be represented by an infinite sequence of ones and zeros, since they will be in the form $(1, 0, 0, 1, \dotso)$.
+I will use Cantor's Diagonal Argument to show that $S$ is uncountably infinite.
+Assuming $S$ is countable, let $s_i \in S$ where $i \in \mathbb{N}$.
+Then, let $s_\text{new}$ be the representation such that $i^{th}$ digit of $s_\text{new}$ is $0$ if $i^{th}$ digit of $s_i$ is $1$, and $1$ if $i^{th}$ digit of $s_i$ is $0$.
+Since $s_\text{new}$ is different from every $s_i \in S$, it isn't in $S$.
+Since it is not in enumeration, enumeration is not complete.
+This contradicts the assumption that the enumeration was complete, i.e. $S$ is countable.
+Thus, $S$ is uncountable.
+\begin{align*}
+s_1 &= 1011010\dotso \\
+s_2 &= 0110101\dotso \\
+s_3 &= 0001111\dotso \\
+s_4 &= 1100001\dotso \\
+& \vdots \\
+s_\text{new} &= 0011\dotso
+\end{align*}
 
 \section*{Answer 4}
 I will first show that for functions $f, g,$ and $h$, if $f \in O(g)$ and $g \in O(h)$, then $f \in O(h)$.
@@ -234,7 +251,14 @@ Since for $k \geq 1$ both of these functions are always positive, we can get rid
 &\leq 5 \cdot 5 \cdot \dotso \cdot 5 && \forall x \geq 1 \\
 &\leq 5^x && \forall x \geq 1
 \end{align*}
-%Before these four proofs I will have to prove that $\log_2{x} \leq \frac{x}{51}, \; \forall x \geq 500$, $\log_2{x} \leq x, \; \forall x \geq 1$, and $\log_2{x} \leq \sqrt{x}, \; \forall x \geq 16$. All of them are similar.
+Before these four proofs I will have to prove that $\log_2{x} \leq \frac{x}{51}, \; \forall x \geq 500$, $\log_2{x} \leq x, \; \forall x \geq 1$, and $\log_2{x} \leq \sqrt{x}, \; \forall x \geq 16$.
+I will show this by showing $\displaystyle\lim_{x \to \infty} \tfrac{\log_2{x}}{ax^b} = 0$ for all $a, b$ where $a > 0, b > 0$, which implies $\log_2{x} \in O(ax^b)$ for all $a, b$ where $a > 0, b > 0$.
+\begin{align*}
+\displaystyle\lim_{x \to \infty} \tfrac{\log_2{x}}{ax^b} &= \displaystyle\lim_{x \to \infty} \tfrac{\ln{x}}{\ln{2} \cdot ax^b}\\
+&= \displaystyle\lim_{x \to \infty} \tfrac{1/x}{\ln{2} \cdot a \cdot b \cdot x^{b-1}} && \text{By L'Hôpital's rule, since $[\tfrac{0}{0}]$ indeterminacy} \\
+&= \displaystyle\lim_{x \to \infty} \tfrac{1}{\ln{2} \cdot a \cdot b \cdot x^b} \\
+&= 0 && \text{Due to $[\tfrac{1}{\infty}]$ form}
+\end{align*}
 \paragraph{c)}
 \begin{gather*}
 O(2^n) \ni (n^{51}+n^{49}) \leftrightarrow \exists \+ c \; \exists \+ k \; (\forall x \geq k \; (\vert n^{51}+n^{49} \vert \leq c \cdot \vert 2^x \vert))

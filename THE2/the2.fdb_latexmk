@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1668972721 "/Users/muratbolu/CENG223/THE2/the2.tex" "the2.pdf" "the2" 1668972722
-  "/Users/muratbolu/CENG223/THE2/the2.tex" 1668972720 20901 5380250df9db3ce8b4ec3fdbb62ae964 ""
+["pdflatex"] 1668976651 "/Users/muratbolu/CENG223/THE2/the2.tex" "the2.pdf" "the2" 1668976652
+  "/Users/muratbolu/CENG223/THE2/the2.tex" 1668976650 22509 813d773782439eeb398657cba77041da ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/jknappen/ec/tcrm0700.tfm" 1136768653 1536 73da8e8f1d2a4c957d51ca133585586b ""
@@ -38,6 +38,7 @@
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1248133631 32762 224316ccc9ad3ca0423a14971cfa7fc1 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1248133631 32726 0a1aea6fcd6468ee2cf64d891f5c43c8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
+  "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb" 1248133631 32587 1788b0c1c5b39540c96f5e42ccd6dae8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1248133631 32626 4f5c1b83753b1dd3a97d1b399a005b4b ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb" 1248133631 30273 87a352d78b6810ae5cfdc68d2fb827b2 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1248133631 34694 ad62b13721ee8eda1dcc8993c8bd7041 ""
@@ -67,8 +68,8 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1666779844 4609062 08c49d5e671d25747d0647f95b82ad6d ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1666779866 3058851 af99a269310c00f40a138664ac86fb46 ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
-  "the2.aux" 1668972722 1264 526f015fdc7a6f65c5162e36eb507dcb "pdflatex"
-  "the2.tex" 1668972720 20901 5380250df9db3ce8b4ec3fdbb62ae964 ""
+  "the2.aux" 1668976652 1264 2e7406165f7951e658dc7cd1d8864473 "pdflatex"
+  "the2.tex" 1668976650 22509 813d773782439eeb398657cba77041da ""
   (generated)
   "the2.aux"
   "the2.log"
