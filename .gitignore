@@ -1,9 +1,5 @@
-
 *
-
-!.gitignore
-!*.tex
-!*.pdf
-
-!*/
-
+!THE?/*
+!THE?/the?.pdf
+!THE?/the?_questions.pdf
+!THE?/the?.tex
