@@ -1,0 +1,102 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{float}
+\usepackage{amsmath}
+
+\usepackage[hmargin=3cm,vmargin=6.0cm]{geometry}
+%\topmargin=0cm
+\topmargin=-2cm
+\addtolength{\textheight}{6.5cm}
+\addtolength{\textwidth}{2.0cm}
+%\setlength{\leftmargin}{-5cm}
+\setlength{\oddsidemargin}{0.0cm}
+\setlength{\evensidemargin}{0.0cm}
+
+%misc libraries goes here
+\usepackage{amssymb}
+\newcommand{\divides}{\mid}
+\newcommand{\notdivides}{\nmid}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+\newcommand{\+}{\mkern2mu}
+\newcommand{\uq}[1]{\forall #1}
+\newcommand{\eq}[1]{\exists \+ #1}
+\newcommand{\bb}[1]{\mathbb{#1}}
+
+\begin{document}
+
+\section*{Student Information }
+%Write your full name and id number between the colon and newline
+%Put one empty space character after colon and before newline
+Full Name : Murat Bolu \\
+Id Number : 2521300 \\
+
+% Write your answers below the section tags
+\section*{Answer 1}
+
+\begin{description}
+    \item[Basis:] For $n = 1$, $6^{2n} - 1 = 6^2 - 1 = 35$, and $5 \divides 35$, and $7 \divides 35$.
+    \item[Inductive Step:] Assuming that $6^{2n} - 1$ is divisible by both $5$ and $7$, one can show that $6^{2(n+1)} - 1 = 6^{2n+2} - 1$ is divisible by $5$ and $7$ for $n \in \{1, 2, 3, \dotsc\}$. Since $5 \divides 6^{2n} - 1$ and $7 \divides 6^{2n} - 1$, that means $35 \divides 6^{2n} - 1$ which is shown below.
+    \begin{align*}
+        6^{2n} - 1 &= 5 \cdot x && \text{for some $x \in \mathbb{N}$} \\
+        6^{2n} - 1 &= 7 \cdot y && \text{for some $y \in \mathbb{N}$} \\
+        5 \cdot x &= 7 \cdot y
+    \end{align*}
+    Since $x$ and $y$ are natural numbers, $x$ must be divisible by $7$ and $y$ must be divisible by $5$, and we can rewrite them as $x = 7 \cdot k$ and $y = 5 \cdot l$. The other possibility is that they are both zero, which is obviously not possible since $6^{2n} - 1$ is at least $35$.
+    \begin{align*}
+        6^{2n} - 1 &= 5 \cdot 7 \cdot k && \text{for some $k \in \mathbb{N}$} \\
+        6^{2n} - 1 &= 7 \cdot 5 \cdot l && \text{for some $l \in \mathbb{N}$} \\
+        6^{2n} - 1 &= 35 \cdot k \\
+        6^{2n} - 1 &= 35 \cdot l
+    \end{align*}
+    There exists $k$ or $l$ such that they are natural numbers, and that means $6^{2n} - 1$ is divisible by $35$.
+    \begin{align*}
+        6^{2n} - 1 &\equiv 0 && \Mod{35} \\
+        6^{2n} &\equiv 1 && \Mod{35} \\
+        6^{2n+2} &\equiv 36 && \Mod{35} \\
+        6^{2n+2} &\equiv 1 && \Mod{35} \\
+        6^{2n+2} - 1 & \equiv 0 && \Mod{35}
+    \end{align*}
+    Therefore, there exists a natural number $a \in \mathbb{N}$ such that $6^{2n+2} - 1 = 35 \cdot a$. It is obvious that $6^{2n+2} - 1$ is divisible by both $5$ and $7$ since $5 \divides 35a$ and $7 \divides 35a$.
+
+    \hfill $\blacksquare$
+\end{description}
+
+\newpage
+
+\section*{Answer 2}
+
+\begin{description}
+    \item[Basis:]
+    \begin{itemize}
+        \item[]
+        \item For $n = 0$, $H_0 = 1 \leq 1 = 9^0$.
+        \item For $n = 1$, $H_1 = 5 \leq 9 = 9^1$.
+        \item For $n = 2$, $H_2 = 7 \leq 81 = 9^2$.
+        \item For $n = 3$, $H_3 = 8H_2 + 8H_1 + 9H_0 = 8 \cdot 7 + 8 \cdot 5 + 9 \cdot 1 = 105 \leq 729 = 9^3$.
+    \end{itemize}
+    \item[Inductive Step:] Assuming that $H_n \leq 9^n$, $\uq{n} \leq k$, one can show that $H_{k+1}$ is less than or equal to $9^{k+1}$. We can replace every $H_n$ with something greater than or equal to itself.
+    \begin{align*}
+        H_{k+1} &= 8H_k + 8H_{k-1} + 9H_{k-2} \\
+        H_{k+1} &\leq 8 \cdot 9^k + 8H_{k-1} + 9H_{k-2} \\
+        H_{k+1} &\leq 8 \cdot 9^k + 8 \cdot 9^{k-1} + 9H_{k-2} \\
+        H_{k+1} &\leq 8 \cdot 9^k + 8 \cdot 9^{k-1} + 9 \cdot 9^{k-2} \\
+        H_{k+1} &\leq 8 \cdot 9^k + 8 \cdot 9^{k-1} + 9^{k-1} \\
+        H_{k+1} &\leq 8 \cdot 9^k + 9 \cdot 9^{k-1} \\
+        H_{k+1} &\leq 8 \cdot 9^k + 9^{k} \\
+        H_{k+1} &\leq 9 \cdot 9^k \\
+        H_{k+1} &\leq 9^{k+1}
+    \end{align*}
+
+    \hfill $\blacksquare$
+\end{description}
+
+\section*{Answer 3}
+
+\section*{Answer 4}
+
+\section*{Answer 5}
+\paragraph{a)}
+\paragraph{b)}
+\paragraph{c)}
+
+\end{document}
