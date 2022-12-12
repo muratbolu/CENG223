@@ -92,6 +92,14 @@ Id Number : 2521300 \\
 
 \section*{Answer 3}
 
+Let $A$ denote the set that contains 8 digit bit strings that contain four consecutive zeros and $B$ denote the set that contains 8 digit bit strings that contain four consecutive ones. It it clear that the answer we are looking for is $|A \cup B|$ which is equal to the commonly known identity $|A| + |B| - |A \cap B|$. It can be seen that $A \cap B = \{00001111, 11110000\}$ and $|A \cap B| = 2$. Then, we need to find $|A|$ and $|B|$.
+\newline
+Let $a_n$ denote the number of strings of size $n$ that contain four consecutive zeros and $b_n$ denote the number of strings of size $n$ that contain four consecutive ones. One can see that $|A| = a_8$ and $|B| = b_8$.
+\newline
+$a_n$ can be written as a recurrence relation where $a_n = 2 \cdot a_{n-1} + 2^{n-5} - a_{n-5}$ and $a_0 = a_1 = a_2 = a_3 = 0$, $a_4 = 1$. The initial conditions are obvious, and the reason for recurrence relation is that we can append zero or one to a valid digit of size $n - 1$ to get a valid digit of size $n$, hence $2 \cdot a_{n-1}$. We can also take a invalid digit of size $n - 5$ and append $10000$ to it, invalid digits are all digits minus the valid digits, hence $2^{n-5} - a_{n-5}$. One can calculate $a_5 = 3$, $a_6 = 8$, $a_7 = 20$, and $a_8 = 48$.
+\newline
+The same argument applies to $b_n$ where the bits are flipped, so $b_8 = 48$. Therefore $|A| = 48$, $|B| = 48$, and $|A \cup B| = 48 + 48 - 2 = 94$.
+
 \section*{Answer 4}
 
 \section*{Answer 5}
