@@ -22,6 +22,7 @@
 \newcommand{\uq}[1]{\forall #1}
 \newcommand{\eq}[1]{\exists \+ #1}
 \newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand*{\myPerm}[2]{{}^{#1}\!P_{#2}}%
 
 \begin{document}
 
@@ -103,7 +104,7 @@ The same argument applies to $b_n$ where the bits are flipped, so $b_8 = 48$. Th
 
 \section*{Answer 4}
 
-One can choose the stars, habitable planets, and inhabitable planets first and order them later. One needs to choose $1$ star from $10$ stars, $2$ habitable planets from $20$ habitable planets, $8$ inhabitable planets from $80$ inhabitable planets. Therefore, there are $\binom{10}{1} \cdot \binom{20}{2} \cdot \binom{80}{8} = \num[group-separator={,}]{55076320585000}$ possible choices for different stars and planets. For ordering, if we consider the habitable planets same with each other and inhabitable planets same with each other, there are $6$ possibilities.
+One can choose the stars, habitable planets, and inhabitable planets such that they are chosen in the order the closest to the star to the farthest. One needs to choose $1$ star from $10$ stars, $2$ habitable planets from $20$ habitable planets, $8$ inhabitable planets from $80$ inhabitable planets in order. Therefore, there are $\myPerm{10}{1} \cdot \myPerm{20}{2} \cdot \myPerm{80}{8} = \num[group-separator={,}]{4441354491974400000}$ possible choices for different stars and planets. For different orderings between planets, if we consider the habitable planets same with each other and inhabitable planets same with each other, there are $6$ possibilities.
 \begin{gather*}
     s \quad uuhuuuuuuh \\
     s \quad uhuuuuuuuh \\
@@ -112,7 +113,12 @@ One can choose the stars, habitable planets, and inhabitable planets first and o
     s \quad huuuuuuuhu \\
     s \quad huuuuuuhuu
 \end{gather*}
-Thus, there are $6$ different ways to order the planets. In total, there are $\binom{10}{1} \cdot \binom{20}{2} \cdot \binom{80}{8} \cdot 6 = \num[group-separator={,}]{330457923510000}$ different ways to create a galaxy.
+One may also consider the block $huuuuuuh$ unmoving and two remaining $u$'s moving. In that case, $h$'s act like separators and two remaining $u$'s can be placed in any three positions. There are $4$ objects in total, two separators and two $u$'s. Both pairs have identical objects, so the permutation of these objects must be divided by $2!$ two times. Thus, the possible orderings are $\tfrac{4!}{2! \cdot 2!} = 6$.
+\begin{gather*}
+    s \quad \_|\_|\_ \\
+    s \quad \_|uu|\_ \\
+\end{gather*}
+Thus, there are $6$ different ways to order the planets. In total, there are $\myPerm{10}{1} \cdot \myPerm{20}{2} \cdot \myPerm{80}{8} \cdot 6 = \num[group-separator={,}]{26648126951846400000}$ different ways to create a galaxy.
 
 \section*{Answer 5}
 \paragraph{a)}
