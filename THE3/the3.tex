@@ -122,17 +122,16 @@ Thus, there are $6$ different ways to order the planets. In total, there are $\m
 
 \section*{Answer 5}
 
-Let the robot start from position $0$, much like array indexing.
+Let the robot start from position $0$, much like array indexing. So when the robot jumps one cell to the right, it is at position $1$.
 \paragraph{a)}
-Let $a_n$ be the number of ways the robot can reach the $n^\text{th}$ cell. The recurrence relation for $a_n$ is $a_n = a_{n-1} + a_{n-2} + a_{n-3}$ with initial conditions $a_0 = 1$, $a_1 = 1$, $a_2 = 2$.
+Let $a_n$ be the number of ways the robot can reach the $n^\text{th}$ cell. The recurrence relation for $a_n$ is $a_n = a_{n-1} + a_{n-2} + a_{n-3}$ for $n \geq 4$ with initial conditions $a_1 = 1$, $a_2 = 2$, $a_3 = 4$.
 
 \paragraph{b)}
-Initial conditions are $a_0 = 1$, $a_1 = 1$, $a_2 = 2$ since there is only one way to reach $0^\text{th}$ and $1^\text{st}$ cell, by standing still and jumping one cell. There are two ways to reach $2^\text{nd}$ cell, by jumping one by one two times and by jumping two cells at once.
+Initial conditions are $a_1 = 1$, $a_2 = 2$, $a_3 = 4$ since there is only one way to reach $1^\text{st}$ cell, by jumping one cell at once. There are two ways to reach $2^\text{nd}$ cell, by jumping one by one two times and by jumping two cells at once. There are four ways to reach $3^\text{rd}$ cell, by jumping one by one three times, by jumping two cells and one cell, by jumping one cell and two cells, and by jumping three cells at once.
 
 \paragraph{c)}
-The robot can move to the $9^\text{th}$ cell in $a_9$ different ways, which can be calculated bottom-up.
+The robot can move to the $9^\text{th}$ cell to the right in $a_9$ different ways, which can be calculated bottom-up.
 \begin{align*}
-    a_3 &= a_2 + a_1 + a_0 = 2 + 1 + 1 = 4 \\
     a_4 &= a_3 + a_2 + a_1 = 4 + 2 + 1 = 7 \\
     a_5 &= a_4 + a_3 + a_2 = 7 + 4 + 2 = 13 \\
     a_6 &= a_5 + a_4 + a_3 = 13 + 7 + 4 = 24 \\
@@ -140,6 +139,6 @@ The robot can move to the $9^\text{th}$ cell in $a_9$ different ways, which can 
     a_8 &= a_7 + a_6 + a_5 = 44 + 24 + 13 = 81 \\
     a_9 &= a_8 + a_7 + a_6 = 81 + 44 + 24 = 149
 \end{align*}
-The robot can move to the $9^\text{th}$ cell in $149$ different ways.
+The robot can move to the $9^\text{th}$ cell to the right in $149$ different ways.
 
 \end{document}
