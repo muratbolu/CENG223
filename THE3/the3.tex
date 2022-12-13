@@ -14,6 +14,7 @@
 
 %misc libraries goes here
 \usepackage{amssymb}
+\usepackage[group-separator={,}]{siunitx}
 \newcommand{\divides}{\mid}
 \newcommand{\notdivides}{\nmid}
 \newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
@@ -101,6 +102,17 @@ $a_n$ can be written as a recurrence relation where $a_n = 2 \cdot a_{n-1} + 2^{
 The same argument applies to $b_n$ where the bits are flipped, so $b_8 = 48$. Therefore $|A| = 48$, $|B| = 48$, and $|A \cup B| = 48 + 48 - 2 = 94$.
 
 \section*{Answer 4}
+
+One can choose the stars, habitable planets, and inhabitable planets first and order them later. One needs to choose $1$ star from $10$ stars, $2$ habitable planets from $20$ habitable planets, $8$ inhabitable planets from $80$ inhabitable planets. Therefore, there are $\binom{10}{1} \cdot \binom{20}{2} \cdot \binom{80}{8} = \num[group-separator={,}]{55076320585000}$ possible choices for different stars and planets. For ordering, if we consider the habitable planets same with each other and inhabitable planets same with each other, there are $6$ possibilities.
+\begin{gather*}
+    s \quad uuhuuuuuuh \\
+    s \quad uhuuuuuuuh \\
+    s \quad huuuuuuuuh \\
+    s \quad uhuuuuuuhu \\
+    s \quad huuuuuuuhu \\
+    s \quad huuuuuuhuu
+\end{gather*}
+Thus, there are $6$ different ways to order the planets. In total, there are $\binom{10}{1} \cdot \binom{20}{2} \cdot \binom{80}{8} \cdot 6 = \num[group-separator={,}]{330457923510000}$ different ways to create a galaxy.
 
 \section*{Answer 5}
 \paragraph{a)}
