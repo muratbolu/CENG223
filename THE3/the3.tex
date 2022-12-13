@@ -113,7 +113,7 @@ One can choose the stars, habitable planets, and inhabitable planets such that t
     s \quad huuuuuuuhu \\
     s \quad huuuuuuhuu
 \end{gather*}
-One may also consider the block $huuuuuuh$ unmoving and two remaining $u$'s moving. In that case, $h$'s act like separators and two remaining $u$'s can be placed in any three positions. There are $4$ objects in total, two separators and two $u$'s. Both pairs have identical objects, so the permutation of these objects must be divided by $2!$ two times. Thus, the possible orderings are $\tfrac{4!}{2! \cdot 2!} = 6$.
+One may also consider the block $huuuuuuh$ with six $u$'s in the middle unmoving and two remaining $u$'s moving. In that case, $h$'s act like separators and two remaining $u$'s can be placed in any three positions. There are $4$ objects in total, two separators and two $u$'s. Both pairs have identical objects, so the permutation of these objects must be divided by $2!$ two times. Thus, the possible orderings are $\tfrac{4!}{2! \cdot 2!} = 6$.
 \begin{gather*}
     s \quad \_|\_|\_ \\
     s \quad \_|uu|\_ \\
@@ -121,8 +121,25 @@ One may also consider the block $huuuuuuh$ unmoving and two remaining $u$'s movi
 Thus, there are $6$ different ways to order the planets. In total, there are $\myPerm{10}{1} \cdot \myPerm{20}{2} \cdot \myPerm{80}{8} \cdot 6 = \num[group-separator={,}]{26648126951846400000}$ different ways to create a galaxy.
 
 \section*{Answer 5}
+
+Let the robot start from position $0$, much like array indexing.
 \paragraph{a)}
+Let $a_n$ be the number of ways the robot can reach the $n^\text{th}$ cell. The recurrence relation for $a_n$ is $a_n = a_{n-1} + a_{n-2} + a_{n-3}$ with initial conditions $a_0 = 1$, $a_1 = 1$, $a_2 = 2$.
+
 \paragraph{b)}
+Initial conditions are $a_0 = 1$, $a_1 = 1$, $a_2 = 2$ since there is only one way to reach $0^\text{th}$ and $1^\text{st}$ cell, by standing still and jumping one cell. There are two ways to reach $2^\text{nd}$ cell, by jumping one by one two times and by jumping two cells at once.
+
 \paragraph{c)}
+The robot can move to the $9^\text{th}$ cell in $a_9$ different ways, which can be calculated bottom-up.
+\begin{align*}
+    a_3 &= a_2 + a_1 + a_0 = 2 + 1 + 1 = 4 \\
+    a_4 &= a_3 + a_2 + a_1 = 4 + 2 + 1 = 7 \\
+    a_5 &= a_4 + a_3 + a_2 = 7 + 4 + 2 = 13 \\
+    a_6 &= a_5 + a_4 + a_3 = 13 + 7 + 4 = 24 \\
+    a_7 &= a_6 + a_5 + a_4 = 24 + 13 + 7 = 44 \\
+    a_8 &= a_7 + a_6 + a_5 = 44 + 24 + 13 = 81 \\
+    a_9 &= a_8 + a_7 + a_6 = 81 + 44 + 24 = 149
+\end{align*}
+The robot can move to the $9^\text{th}$ cell in $149$ different ways.
 
 \end{document}
