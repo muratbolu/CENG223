@@ -12,7 +12,11 @@
 \setlength{\oddsidemargin}{0.0cm}
 \setlength{\evensidemargin}{0.0cm}
 
+\usepackage{braket}
+
 \begin{document}
+
+\addtolength\jot{5pt}
 
 \section*{Student Information } 
 %Write your full name and id number between the colon and newline
@@ -22,10 +26,71 @@ Id Number : 2521300 \\
 
 % Write your answers below the section tags
 \section*{Answer 1}
+Let $\Braket{a_0, a_1, a_2, a_3, \cdots, a_n, \cdots}$ be the generating function $A(x)$. Then, $A(x) = \displaystyle\sum_{n=0}^{\infty} a_n x^n$.
+\begin{align*}
+\sum_{n=2}^{\infty} a_n x^n &= \sum_{n=2}^{\infty} (3a_{n-1} + 4a_{n-2}) \cdot x^n \\
+&= \sum_{n=2}^{\infty} 3a_{n-1} x^n + 4a_{n-2} x^n \\
+&= \sum_{n=2}^{\infty} 3a_{n-1} x^n + \sum_{n=2}^{\infty} 4a_{n-2} x^n \\
+&= 3 \sum_{n=2}^{\infty} a_{n-1} x^n + 4 \sum_{n=2}^{\infty} a_{n-2} x^n \\
+&= 3x \sum_{n=2}^{\infty} a_{n-1} x^{n-1} + 4x^2 \sum_{n=2}^{\infty} a_{n-2} x^{n-2} \\
+&= 3x \sum_{n=1}^{\infty} a_n x^n + 4x^2 \sum_{n=0}^{\infty} a_n x^n \\
+\sum_{n=2}^{\infty} a_n x^n &= 3x \sum_{n=1}^{\infty} a_n x^n + 4x^2 \sum_{n=0}^{\infty} a_n x^n \\
+A(x) - a_1 \cdot x - a_0 &= 3x \cdot (A(x) - a_0) + 4x^2 \cdot A(x) \\
+A(x) - a_1 \cdot x - a_0 &= 3x \cdot A(x) - 3x \cdot a_0 + 4x^2 \cdot A(x) \\
+A(x) - 3x \cdot A(x) - 4x^2 \cdot A(x) &= a_1 \cdot x + a_0 - 3x \cdot a_0 \\
+A(x) \cdot (1 - 3x - 4x^2) &= a_1 \cdot x + a_0 \cdot (1 - 3x) \\
+A(x) &= \frac{a_1 \cdot x + a_0 \cdot (1 - 3x)}{1 - 3x - 4x^2} \\
+&= \frac{a_1 \cdot x + a_0 \cdot (1 - 3x)}{(1-4x) \cdot (1+x)}
+\end{align*}
+Plug in values for $a_0$ and $a_1$:
+\begin{align*}
+A(x) &= \frac{x + 1 \cdot (1 - 3x)}{(1-4x) \cdot (1+x)} \\
+&= \frac{1 - 2x}{(1-4x) \cdot (1+x)}
+\end{align*}
 
+\noindent
+Partial fractions:
+\begin{align*}
+\frac{1 - 2x}{(1-4x) \cdot (1+x)} &= \frac{\xi}{1-4x} + \frac{\varphi}{1+x} \\
+&= \frac{\xi \cdot (1+x) + \varphi \cdot (1-4x)}{(1-4x) \cdot (1+x)} \\
+&= \frac{\xi + \xi \cdot x + \varphi - 4 \varphi \cdot x}{(1-4x) \cdot (1+x)} \\
+\frac{1 - 2x}{(1-4x) \cdot (1+x)} &= \frac{\xi + \varphi + x \cdot (\xi  - 4 \varphi)}{(1-4x) \cdot (1+x)}
+\end{align*}
+We can solve the system of linear equations:
+\begin{align*}
+\xi + \varphi &= 1 \\
+\xi -4 \varphi &= -2 \\
+5 \varphi &= 3 \\
+\varphi &= \tfrac{3}{5} \\
+\xi &= \tfrac{2}{5}
+\end{align*}
+So the equation becomes:
+\begin{align*}
+A(x) &= \frac{\tfrac{2}{5}}{1-4x} + \frac{\tfrac{3}{5}}{1+x} \\
+&= \frac{2}{5} \cdot \frac{1}{1-4x} + \frac{3}{5} \cdot \frac{1}{1+x}
+\end{align*}
+\begin{align*}
+\frac{1}{1-4x} &\leftrightarrow \Braket{4^0, 4^1, 4^2, \cdots, 4^n, \cdots} \\
+\frac{2}{5} \cdot \frac{1}{1-4x} &\leftrightarrow \Braket{\tfrac{2}{5} \cdot 4^0, \tfrac{2}{5} \cdot 4^1, \tfrac{2}{5} \cdot 4^2, \cdots, \tfrac{2}{5} \cdot 4^n, \cdots} \\
+&\leftrightarrow \Braket{\frac{2}{5}, \frac{8}{5}, \frac{32}{5}, \cdots, \frac{2^{2n+1}}{5}, \cdots}
+\end{align*}
+\begin{align*}
+\frac{1}{1+x} &\leftrightarrow \Braket{1, -1, 1, \cdots, (-1)^n, \cdots} \\
+\frac{3}{5} \cdot \frac{1}{1+x} &\leftrightarrow \Braket{\frac{3}{5}, -\frac{3}{5}, \frac{3}{5}, \cdots, \frac{3}{5} \cdot (-1)^n, \cdots}
+\end{align*}
+\begin{align*}
+A(x) &\leftrightarrow \Braket{\frac{2}{5}, \frac{8}{5}, \frac{32}{5}, \cdots, \frac{2^{2n+1}}{5}, \cdots} + \Braket{\frac{3}{5}, -\frac{3}{5}, \frac{3}{5}, \cdots, \frac{3}{5} \cdot (-1)^n, \cdots} \\
+A(x) &\leftrightarrow \Braket{1, 1, 7, \cdots, \frac{2^{2n+1} + 3(-1)^n}{5}, \cdots}
+\end{align*}
+Therefore, $a_n = \dfrac{2^{2n+1} + 3(-1)^n}{5}$.
 
 \section*{Answer 2}
 \subsection*{a) }
+Let $\Braket{2, 5, 11, 29, 83, 245, \cdots}$ be the generating function $F(x)$.
+\begin{align*}
+F(x) &\leftrightarrow \Braket{2, 5, 11, 29, 83, 245, \cdots} \\
+F(x) - 2 &\leftrightarrow \Braket{0, 3, 9, 27, 81, 243, \cdots} \\
+\end{align*}
 
 \subsection*{b) }
 
