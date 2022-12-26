@@ -13,12 +13,13 @@
 \setlength{\evensidemargin}{0.0cm}
 
 \usepackage{braket}
+\usepackage{amssymb}
 
 \begin{document}
 
 \addtolength\jot{5pt}
 
-\section*{Student Information } 
+\section*{Student Information }
 %Write your full name and id number between the colon and newline
 %Put one empty space character after colon and before newline
 Full Name : Murat Bolu \\
@@ -89,13 +90,67 @@ Therefore, $a_n = \dfrac{2^{2n+1} + 3(-1)^n}{5}$.
 Let $\Braket{2, 5, 11, 29, 83, 245, \cdots}$ be the generating function $F(x)$.
 \begin{align*}
 F(x) &\leftrightarrow \Braket{2, 5, 11, 29, 83, 245, \cdots} \\
-F(x) - 2 &\leftrightarrow \Braket{0, 3, 9, 27, 81, 243, \cdots} \\
+&\leftrightarrow \Braket{0+2, 3+2, 9+2, 27+2, 81+2, 243+2, \cdots} \\
+&\leftrightarrow \Braket{0, 3, 9, 27, 81, 243, \cdots} + \Braket{2, 2, 2, 2, 2, 2, \cdots} \\
+&\leftrightarrow \Braket{0, 3, 9, 27, 81, 243, \cdots} + 2 \cdot \Braket{1, 1, 1, 1, 1, 1, \cdots} \\
+&\leftrightarrow \Braket{1-1, 3, 9, 27, 81, 243, \cdots} + 2 \cdot \Braket{1, 1, 1, 1, 1, 1, \cdots} \\
+&\leftrightarrow \Braket{1, 3, 9, 27, 81, 243, \cdots} - \Braket{1, 0, 0, 0, 0, 0, \cdots} + 2 \cdot \Braket{1, 1, 1, 1, 1, 1, \cdots}
+\end{align*}
+\begin{align*}
+F(x) &= \frac{1}{1-3x} - 1 + 2 \cdot \frac{1}{1-x} \\
+&= \frac{1-1+3x}{1-3x} + \frac{2}{1-x} \\
+&= \frac{3x}{1-3x} + \frac{2}{1-x} \\
+&= \frac{3x \cdot (1-x) + 2 \cdot (1-3x)}{(1-3x) \cdot (1-x)} \\
+&= \frac{3x - 3x^2 + 2 - 6x}{1 - 4x + 3x^2} \\
+F(x) &= \frac{2 - 3x - 3x^2}{1 - 4x + 3x^2}
 \end{align*}
 
 \subsection*{b) }
+\begin{align*}
+G(x) &= \frac{7-9x}{1-3x+2x^2} \\
+&= \frac{7-9x}{(1-2x)(1-x)}
+\end{align*}
+\begin{align*}
+\frac{7-9x}{(1-2x)(1-x)} &= \frac{\xi}{1-2x} + \frac{\varphi}{1-x} \\
+&= \frac{\xi \cdot (1-x) + \varphi \cdot (1-2x)}{(1-2x)(1-x)} \\
+&= \frac{\xi - \xi \cdot x + \varphi - 2 \varphi \cdot x}{(1-2x)(1-x)} \\
+&= \frac{\xi + \varphi - \xi \cdot x - 2 \varphi \cdot x}{(1-2x)(1-x)} \\
+\frac{7-9x}{(1-2x)(1-x)} &= \frac{\xi + \varphi + x \cdot (- \xi - 2 \varphi)}{(1-2x)(1-x)}
+\end{align*}
+\begin{align*}
+\xi + \varphi &= 7 \\
+-\xi - 2\varphi &= -9 \\
+-\varphi &= -2 \\
+\varphi &= 2 \\
+\xi &= 5
+\end{align*}
+\begin{align*}
+G(x) &= \frac{5}{1-2x} + \frac{2}{1-x} \\
+&= 5 \cdot \frac{1}{1-2x} + 2 \cdot \frac{1}{1-x}
+\end{align*}
+\begin{align*}
+\frac{1}{1-2x} &\leftrightarrow \Braket{1, 2, 4, 8, \cdots, 2^n, \cdots} \\
+5 \cdot \frac{1}{1-2x} &\leftrightarrow \Braket{5, 10, 20, 40, \cdots, 5 \cdot 2^n, \cdots} \\
+\frac{1}{1-x} &\leftrightarrow \Braket{1, 1, 1, 1, \cdots, 1, \cdots} \\
+2 \cdot \frac{1}{1-x} &\leftrightarrow \Braket{2, 2, 2, 2, \cdots, 2, \cdots}
+\end{align*}
+\begin{align*}
+5 \cdot \frac{1}{1-2x} + 2 \cdot \frac{1}{1-x} &\leftrightarrow \Braket{5, 10, 20, 40, \cdots, 5 \cdot 2^n, \cdots} + \Braket{2, 2, 2, 2, \cdots, 2, \cdots} \\
+G(x) &\leftrightarrow \Braket{7, 12, 22, 42, \cdots, 5 \cdot 2^n + 2, \cdots} \\
+\end{align*}
+Therefore, $g_n = 5 \cdot 2^n + 2$.
 
 \section*{Answer 3}
 \subsection*{a) }
+$R$ can be a equivalence relation if it is reflexive, symmetric and transitive.
+$R$ is not reflexive, it is symmetric and it is not transitive.
+$R$ is not reflexive since $1 \in \mathbb{Z}$, but $1R1$ is not true since there does not exist a right triangle with two edges of size one and the other edge being an integer.
+In a right triangle, hypotenuse is always the longest side of the triangle.
+If the hypotenuse is $1$, by Pythagorean theorem $x^2 + 1^2 = 1^2 \to x^2 = 0 \to x = 0$, therefore one of the sides is zero and the shape cannot be a triangle.
+If the hypotenuse is not $1$, by Pythagorean theorem $1^2 + 1^2 = x^2 \to 2 = x^2$ and by quadratic formula $x=\sqrt{2}$ since sides are always positive.
+Therefore, x is not an integer.
+The relation $1R1$ is not satisfied either way.
+Since $1R1$ is not satisfied, $R$ is not reflexive, and since $R$ is not reflexive, it cannot be an equivalence relation.
 
 \subsection*{b) }
 
