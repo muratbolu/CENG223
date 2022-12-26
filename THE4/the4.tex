@@ -14,6 +14,9 @@
 
 \usepackage{braket}
 \usepackage{amssymb}
+\usepackage{tikz}
+\newcommand{\+}{\mkern2mu}
+\newcommand{\ndiv}{\hspace{-4pt}\not|\hspace{2pt}}
 
 \begin{document}
 
@@ -196,5 +199,54 @@ In fact, this relation $R$ partitions $\mathbb{R}^2$ into lines with slope $-2$.
 
 \section*{Answer 4}
 
+\subsection*{a) }
+\begin{center}
+\begin{tikzpicture}
+    \node (2) at (1,-2) {$2$};
+    \node (5) at (-1, -2) {$5$};
+    \node (10) at (0, 0) {$10$};
+    \node (18) at (2, -0) {$18$};
+    \node (60) at (0, 2) {$60$};
+    \draw (18) -- (2) -- (10) -- (60);
+    \draw (5) -- (10);
+\end{tikzpicture}
+\end{center}
+
+\subsection*{b) }
+\begin{gather*}
+M_R = 
+\begin{bmatrix}
+1 & 0 & 1 & 1 & 1 \\
+0 & 1 & 1 & 0 & 1 \\
+0 & 0 & 1 & 0 & 1 \\
+0 & 0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 0 & 1 \\
+\end{bmatrix}
+\end{gather*}
+
+\subsection*{c) }
+\begin{gather*}
+M_{R_s} = 
+\begin{bmatrix}
+1 & 0 & 1 & 1 & 1 \\
+0 & 1 & 1 & 0 & 1 \\
+1 & 1 & 1 & 0 & 1 \\
+1 & 0 & 0 & 1 & 0 \\
+1 & 1 & 1 & 0 & 1 \\
+\end{bmatrix}
+\end{gather*}
+\begin{gather*}
+\forall \+ x \in \{(10, 2), (18, 2), (60, 2), (10, 5), (60, 5), (60, 10)\} (x \in R_s \land x \notin R)
+\end{gather*}
+
+\subsection*{d) }
+It is not possible to create a total ordering relation with replacing one element, since $2$ and $5$ are unrelated because they are both (relatively) prime.
+If we replace $2$, $18$ will be left out of the chain because $5 \ndiv 18$.
+If we replace $5$, $10$ and $18$ will be on separate chains because $10 \ndiv 18$.
+If we replace any other element, $2$ and $5$ will be on separate chains because $2 \ndiv 5$.
+Therefore, it is not possible to create a total ordering relation with replacing just one element.
+However, it is possible by removing two elements and adding one.
+For example, removing $5$ and $18$, and adding $20$, $30$ or any multiple of $60$ greater than $60$ will work.
+Another example is removing $2$ and $18$, and adding $20$, $30$ or any multiple of $60$ greater than $60$.
 
 \end{document}
