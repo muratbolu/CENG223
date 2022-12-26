@@ -153,6 +153,46 @@ The relation $1R1$ is not satisfied either way.
 Since $1R1$ is not satisfied, $R$ is not reflexive, and since $R$ is not reflexive, it cannot be an equivalence relation.
 
 \subsection*{b) }
+$R$ can be a equivalence relation if it is reflexive, symmetric and transitive.
+$R$ is reflexive, symmetric, and transitive.
+\begin{itemize}
+\item $R$ is reflexive since for all pairs,
+    \begin{align*}
+    (x_1, y_1)R(x_1, y_1) &\leftrightarrow 2x_1 + y_1 = 2x_1 + y_1 \\
+    &\leftrightarrow 0 = 0 \\
+    &\leftrightarrow T
+    \end{align*}
+    Which means $(x_1, y_1)R(x_1, y_1)$ is always true.
+\item $R$ is symmetric since for all pairs,
+    \begin{align*}
+    (x_1, y_1)R(x_2, y_2) &\to 2x_1 + y_1 = 2x_2 + y_2 \\
+    &\to 2x_2 + y_2 = 2x_1 + y_1 \\
+    &\to (x_2, y_2)R(x_1, y_1)
+    \end{align*}
+\item $R$ is transitive since for all pairs,
+    \begin{align*}
+    (x_1, y_1)R(x_2, y_2) \land (x_2, y_2)R(x_3, y_3) &\to (2x_1 + y_1 = 2x_2 + y_2) \land (2x_2 + y_2 = 2x_3 + y_3) \\
+    &\to 2x_1 + y_1 = 2x_2 + y_2 = 2x_3 + y_3 \\
+    &\to 2x_1 + y_1 = 2x_3 + y_3 \\
+    &\to (x_1, y_1)R(x_3, y_3)
+    \end{align*}
+\end{itemize}
+For the equivalence class of $(1, -2)$:
+\begin{align*}
+(1, -2)R(x, y) &\leftrightarrow 2 \cdot 1 - 2 = 2x + y \\
+&\leftrightarrow 0 = 2x + y \\
+&\leftrightarrow -2x = y
+\end{align*}
+Therefore, $(1, -2)R(x, -2x)$ for all $x \in \mathbb{R}$.
+The equivalence class $[(1, -2)]$ is equal to the set $\{(x, -2x) \mid x \in \mathbb{R}\}$.
+If we take the pairs like points on a Cartesian coordinate system, this equivalence class represents the line passing through $(1, -2)$ with the slope $-2$. We can find the slope like this:
+\begin{align*}
+(x_1, y_1)R(x_2, y_2) &\leftrightarrow 2x_1 + y_1 = 2x_2 + y_2 \\
+&\leftrightarrow y_1 - y_2 = 2x_2 - 2x_1 \\
+&\leftrightarrow -(y_2 - y_1) = 2(x_2 - x_1) \\
+&\leftrightarrow \frac{y_2 - y_1}{x_2 - x_1} = -2 \\
+\end{align*}
+In fact, this relation $R$ partitions $\mathbb{R}^2$ into lines with slope $-2$.
 
 \section*{Answer 4}
 
