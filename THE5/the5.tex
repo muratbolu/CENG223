@@ -17,10 +17,12 @@
 \usepackage{enumitem}
 \setenumerate[0]{label=\textbf{\alph*)}}
 \usepackage{setspace}
+\usepackage{tikz}
+\usepackage{amsfonts}
 
 \begin{document}
 
-\section*{Student Information } 
+\section*{Student Information }
 %Write your full name and id number between the colon and newline
 %Put one empty space character after colon and before newline
 Full Name : Murat Bolu \\
@@ -48,7 +50,7 @@ Adjacency matrix is $M=
 0 & 0 & 1 & 0 & 1 \\
 1 & 1 & 0 & 1 & 0 \\
 \end{bmatrix}$
-where the item $M_{ij}$ represents the existence of an edge between the nodes $i$ and $j$.
+where the item $M_{ij}$ represents the existence of an edge between the vertices $i$ and $j$.
 The vertices are enumerated in the order they are written above.
 There are 14 non-zero entries in the adjacency matrix representation of $G$.
 
@@ -72,7 +74,7 @@ There is not, since $\textbf{c}$ and $\textbf{e}$ are not connected, only one ca
 \item
 No, it is not, since $\{\textbf{a}, \textbf{b}, \textbf{c}\}$ are all connected, it is not possible to place them in two disjoint and independent sets such that there is no edge connecting between two elements in the same set.
 One can exhaust all possibilities by trying $\{\{\textbf{a}, \textbf{b}\}, \{\textbf{c}\}\}$, $\{\{\textbf{a}, \textbf{c}\}, \{\textbf{b}\}\}$, $\{\{\textbf{b}, \textbf{c}\}, \{\textbf{a}\}\}$.
-Since a subgraph of $G$ is not bipartite, adding new nodes to that subgraph would not be able to fix that and therefore $G$ is not bipartite.
+Since a subgraph of $G$ is not bipartite, adding new vertices to that subgraph would not be able to fix that and therefore $G$ is not bipartite.
 
 \item
 For every undirected edge, we can choose two directions, and therefore we have $2^{|E|} = 2^7 = 128$ different directed graphs that have $G$ as their underlying graph.
@@ -128,6 +130,501 @@ f:V_G \mapsto V_H,\ f = \{(\textbf{a}, \textbf{a'}), (\textbf{b}, \textbf{b'}), 
 
 \section*{Answer 3}
 
+The graph $G$ can be represented by a triple $(V, E, W)$ where $V$ is the set of vertices, $E$ is the set of edges, and $W$ is the weight function from the set of edges $E$ to real numbers $\mathbb{R}$.
+
+\begin{gather*}
+V = \{\textbf{s}, \textbf{t}, \textbf{u}, \textbf{v}, \textbf{w}, \textbf{x}, \textbf{y}, \textbf{z}\}
+\end{gather*}
+
+\begin{align*}
+E = \{
+    \{\textbf{s}, \textbf{u}\},
+    \{\textbf{s}, \textbf{v}\},
+    \{\textbf{s}, \textbf{w}\},
+    \{\textbf{t}, \textbf{y}\},&
+    \{\textbf{t}, \textbf{z}\},
+    \{\textbf{u}, \textbf{v}\},
+    \{\textbf{u}, \textbf{w}\},
+    \{\textbf{u}, \textbf{y}\}, \\
+    \{\textbf{v}, \textbf{w}\},
+    \{\textbf{v}, \textbf{x}\},
+    \{\textbf{v}, \textbf{y}\},
+    \{\textbf{w}, \textbf{x}\},&
+    \{\textbf{w}, \textbf{z}\},
+    \{\textbf{x}, \textbf{y}\},
+    \{\textbf{x}, \textbf{z}\},
+    \{\textbf{y}, \textbf{z}\}
+    \}
+\end{align*}
+
+\begin{align*}
+W: E \mapsto \mathbb{R},\ W = \{
+    (\{\textbf{s}, \textbf{u}\}, 4),
+    (\{\textbf{s}, \textbf{v}\}, 5),&
+    (\{\textbf{s}, \textbf{w}\}, 3),
+    (\{\textbf{t}, \textbf{y}\}, 9), \\
+    (\{\textbf{t}, \textbf{z}\}, 3),
+    (\{\textbf{u}, \textbf{v}\}, 8),&
+    (\{\textbf{u}, \textbf{w}\}, 1),
+    (\{\textbf{u}, \textbf{y}\}, 11), \\
+    (\{\textbf{v}, \textbf{w}\}, 3),
+    (\{\textbf{v}, \textbf{x}\}, 2),&
+    (\{\textbf{v}, \textbf{y}\}, 6),
+    (\{\textbf{w}, \textbf{x}\}, 8), \\
+    (\{\textbf{w}, \textbf{z}\}, 12),
+    (\{\textbf{x}, \textbf{y}\}, 1),&
+    (\{\textbf{x}, \textbf{z}\}, 6),
+    (\{\textbf{y}, \textbf{z}\}, 4)
+\}
+\end{align*}
+
+
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+
+	\node[shape=circle,draw=black] (s) at (-1, 2)    {\textbf{s}};
+	\node[shape=circle,draw=black] (u) at (0, 4)     {\textbf{u}};
+	\node[shape=circle,draw=black] (y) at (5, 4)     {\textbf{y}};
+	\node[shape=circle,draw=black] (w) at (0, 0)     {\textbf{w}};
+	\node[shape=circle,draw=black] (z) at (5, 0)     {\textbf{z}};
+	\node[shape=circle,draw=black] (v) at (1, 2)     {\textbf{v}};
+    \node[shape=circle,draw=black] (x) at (4, 2)     {\textbf{x}};
+    \node[shape=circle,draw=black] (t) at (6, 2)     {\textbf{t}};
+
+	\path[-, thick] (u) edge [bend right=90] node[left]{1} (w);
+	\path[-, thick] (s) edge node[left]{4} (u);
+	\path[-, thick] (s) edge node[above]{5} (v);
+	\path[-, thick] (u) edge node[right]{8} (v);
+	\path[-, thick] (s) edge node[left]{3} (w);
+	\path[-, thick] (v) edge node[right]{3} (w);
+	\path[-, thick] (u) edge node[above]{11} (y);
+	\path[-, thick] (y) edge node[right]{9} (t);
+	\path[-, thick] (y) edge node[left]{1} (x);
+	\path[-, thick] (y) edge node[left]{4} (z);
+	\path[-, thick] (x) edge node[left]{6} (z);
+	\path[-, thick] (t) edge node[right]{3} (z);
+	\path[-, thick] (w) edge node[below]{12} (z);
+	\path[-, thick] (x) edge node[below]{8} (w);
+	\path[-, thick] (v) edge node[above]{2} (x);
+	\path[-, thick] (v) edge node[above]{6} (y);
+
+	\end{tikzpicture}
+\end{figure}
+
+\newpage
+
+Let the distance to the starting vertex be zero.
+For all vertices other than the starting vertex, if they have an edge with the starting vertex, make the distance to them equal to the weight of that edge, otherwise mark the distance as infinity.
+Let the parent vertex of all vertices that have an edge with the starting vertex be the starting vertex.
+The parent vertex of the starting vertex is undefined, and the parent vertex of all other vertices are yet to be determined.
+
+\begin{figure}[H]
+	\centering
+    \begin{tikzpicture}[
+        auto,
+        semithick % line style
+    ]
+    \tikzstyle{every state}=[
+        draw = black,
+        thick,
+        fill = white,
+        minimum size = 4mm,
+        circle
+    ]
+
+    \tikzstyle{red state}=[
+        draw = red,
+        thick,
+        fill = white,
+        minimum size = 4mm,
+        circle
+    ]
+
+	\node[red state]   (s) at (-1, 2)    {0};
+	\node[every state] (u) at (0, 4)     {4};
+	\node[every state] (y) at (5, 4)     {$\infty$};
+	\node[every state] (w) at (0, 0)     {3};
+	\node[every state] (z) at (5, 0)     {$\infty$};
+	\node[every state] (v) at (1, 2)     {5};
+    \node[every state] (x) at (4, 2)     {$\infty$};
+    \node[every state] (t) at (6, 2)     {$\infty$};
+
+	\path[-, thick] (u) edge [bend right=90] node[left]{1} (w);
+	\path[-, thick] (s) edge node[left]{4} (u);
+	\path[-, thick] (s) edge node[above]{5} (v);
+	\path[-, thick] (u) edge node[right]{8} (v);
+	\path[-, thick] (s) edge node[left]{3} (w);
+	\path[-, thick] (v) edge node[right]{3} (w);
+	\path[-, thick] (u) edge node[above]{11} (y);
+	\path[-, thick] (y) edge node[right]{9} (t);
+	\path[-, thick] (y) edge node[left]{1} (x);
+	\path[-, thick] (y) edge node[left]{4} (z);
+	\path[-, thick] (x) edge node[left]{6} (z);
+	\path[-, thick] (t) edge node[right]{3} (z);
+	\path[-, thick] (w) edge node[below]{12} (z);
+	\path[-, thick] (x) edge node[below]{8} (w);
+	\path[-, thick] (v) edge node[above]{2} (x);
+	\path[-, thick] (v) edge node[above]{6} (y);
+
+	\end{tikzpicture}
+\end{figure}
+
+Since the vertex with the smallest distance is \textbf{w}, visit \textbf{w} and update the distances of \textbf{x} and \textbf{z} to be the sum of the distance of \textbf{w} and the weight of the edge between \textbf{w} and that vertex.
+Mark the parent vertex of \textbf{w} as \textbf{s}.
+The distance of \textbf{v} is not updated since the sum of the distance of \textbf{w} and the weight of the edge between \textbf{w} and \textbf{v}, which is 6, is greater than the current distance of \textbf{v}, which is 5.
+
+\begin{figure}[H]
+	\centering
+    \begin{tikzpicture}
+    \tikzstyle{every state}=[
+        draw = black,
+        thick,
+        fill = white,
+        minimum size = 4mm,
+        circle
+    ]
+    \tikzstyle{red state}=[
+        draw = red,
+        thick,
+        fill = white,
+        minimum size = 4mm,
+        circle
+    ]
+
+	\node[red state]   (s) at (-1, 2)    {0};
+	\node[every state] (u) at (0, 4)     {4};
+	\node[every state] (y) at (5, 4)     {$\infty$};
+	\node[red state]   (w) at (0, 0)     {3};
+	\node[every state] (z) at (5, 0)     {15};
+	\node[every state] (v) at (1, 2)     {5};
+    \node[every state] (x) at (4, 2)     {11};
+    \node[every state] (t) at (6, 2)     {$\infty$};
+
+	\path[-, thick] (u) edge [bend right=90] node[left]{1} (w);
+	\path[-, thick] (s) edge node[left]{4} (u);
+	\path[-, thick] (s) edge node[above]{5} (v);
+	\path[-, thick] (u) edge node[right]{8} (v);
+	\draw[-, thick] (s) edge [red] node[black, left]{3} (w);
+	\path[-, thick] (v) edge node[right]{3} (w);
+	\path[-, thick] (u) edge node[above]{11} (y);
+	\path[-, thick] (y) edge node[right]{9} (t);
+	\path[-, thick] (y) edge node[left]{1} (x);
+	\path[-, thick] (y) edge node[left]{4} (z);
+	\path[-, thick] (x) edge node[left]{6} (z);
+	\path[-, thick] (t) edge node[right]{3} (z);
+	\path[-, thick] (w) edge node[below]{12} (z);
+	\path[-, thick] (x) edge node[below]{8} (w);
+	\path[-, thick] (v) edge node[above]{2} (x);
+	\path[-, thick] (v) edge node[above]{6} (y);
+
+	\end{tikzpicture}
+\end{figure}
+
+\newpage
+
+Since the unvisited vertex with the smallest distance is \textbf{u}, visit \textbf{u} and repeat the steps above.
+
+\begin{figure}[H]
+	\centering
+    \begin{tikzpicture}
+    \tikzstyle{every state}=[
+        draw = black,
+        thick,
+        fill = white,
+        minimum size = 4mm,
+        circle
+    ]
+    \tikzstyle{red state}=[
+        draw = red,
+        thick,
+        fill = white,
+        minimum size = 4mm,
+        circle
+    ]
+
+	\node[red state]   (s) at (-1, 2)    {0};
+	\node[red state]   (u) at (0, 4)     {4};
+	\node[every state] (y) at (5, 4)     {15};
+	\node[red state]   (w) at (0, 0)     {3};
+	\node[every state] (z) at (5, 0)     {15};
+	\node[every state] (v) at (1, 2)     {5};
+    \node[every state] (x) at (4, 2)     {11};
+    \node[every state] (t) at (6, 2)     {$\infty$};
+
+	\path[-, thick] (u) edge [red] [bend right=90] node[black, left]{1} (w);
+	\path[-, thick] (s) edge node[left]{4} (u);
+	\path[-, thick] (s) edge node[above]{5} (v);
+	\path[-, thick] (u) edge node[right]{8} (v);
+	\draw[-, thick] (s) edge [red] node[black, left]{3} (w);
+	\path[-, thick] (v) edge node[right]{3} (w);
+	\path[-, thick] (u) edge node[above]{11} (y);
+	\path[-, thick] (y) edge node[right]{9} (t);
+	\path[-, thick] (y) edge node[left]{1} (x);
+	\path[-, thick] (y) edge node[left]{4} (z);
+	\path[-, thick] (x) edge node[left]{6} (z);
+	\path[-, thick] (t) edge node[right]{3} (z);
+	\path[-, thick] (w) edge node[below]{12} (z);
+	\path[-, thick] (x) edge node[below]{8} (w);
+	\path[-, thick] (v) edge node[above]{2} (x);
+	\path[-, thick] (v) edge node[above]{6} (y);
+
+	\end{tikzpicture}
+\end{figure}
+
+Visit the vertex \textbf{v} and repeat the steps above.
+Since its parent vertex was \textbf{s}, one must “color” the edge between \textbf{s} and \textbf{v}, not any other edge.
+This step is crucial to generate the correct shortest path from the starting vertex to the ending vertex.
+
+\begin{figure}[H]
+	\centering
+    \begin{tikzpicture}
+    \tikzstyle{every state}=[
+        draw = black,
+        thick,
+        fill = white,
+        minimum size = 4mm,
+        circle
+    ]
+    \tikzstyle{red state}=[
+        draw = red,
+        thick,
+        fill = white,
+        minimum size = 4mm,
+        circle
+    ]
+
+	\node[red state]   (s) at (-1, 2)    {0};
+	\node[red state]   (u) at (0, 4)     {4};
+	\node[every state] (y) at (5, 4)     {11};
+	\node[red state]   (w) at (0, 0)     {3};
+	\node[every state] (z) at (5, 0)     {15};
+	\node[red state]   (v) at (1, 2)     {5};
+    \node[every state] (x) at (4, 2)     {7};
+    \node[every state] (t) at (6, 2)     {$\infty$};
+
+	\path[-, thick] (u) edge [red] [bend right=90] node[black, left]{1} (w);
+	\path[-, thick] (s) edge node[left]{4} (u);
+	\path[-, thick] (s) edge [red] node[black, above]{5} (v);
+	\path[-, thick] (u) edge node[right]{8} (v);
+	\draw[-, thick] (s) edge [red] node[black, left]{3} (w);
+	\path[-, thick] (v) edge node[right]{3} (w);
+	\path[-, thick] (u) edge node[above]{11} (y);
+	\path[-, thick] (y) edge node[right]{9} (t);
+	\path[-, thick] (y) edge node[left]{1} (x);
+	\path[-, thick] (y) edge node[left]{4} (z);
+	\path[-, thick] (x) edge node[left]{6} (z);
+	\path[-, thick] (t) edge node[right]{3} (z);
+	\path[-, thick] (w) edge node[below]{12} (z);
+	\path[-, thick] (x) edge node[below]{8} (w);
+	\path[-, thick] (v) edge node[above]{2} (x);
+	\path[-, thick] (v) edge node[above]{6} (y);
+
+	\end{tikzpicture}
+\end{figure}
+
+Visit the vertex \textbf{x} and repeat the steps above.
+
+\begin{figure}[H]
+	\centering
+    \begin{tikzpicture}
+    \tikzstyle{every state}=[
+        draw = black,
+        thick,
+        fill = white,
+        minimum size = 4mm,
+        circle
+    ]
+    \tikzstyle{red state}=[
+        draw = red,
+        thick,
+        fill = white,
+        minimum size = 4mm,
+        circle
+    ]
+
+	\node[red state]   (s) at (-1, 2)    {0};
+	\node[red state]   (u) at (0, 4)     {4};
+	\node[every state] (y) at (5, 4)     {8};
+	\node[red state]   (w) at (0, 0)     {3};
+	\node[every state] (z) at (5, 0)     {13};
+	\node[red state]   (v) at (1, 2)     {5};
+    \node[red state]   (x) at (4, 2)     {7};
+    \node[every state] (t) at (6, 2)     {$\infty$};
+
+	\path[-, thick] (u) edge [red] [bend right=90] node[black, left]{1} (w);
+	\path[-, thick] (s) edge node[left]{4} (u);
+	\path[-, thick] (s) edge [red] node[black, above]{5} (v);
+	\path[-, thick] (u) edge node[right]{8} (v);
+	\draw[-, thick] (s) edge [red] node[black, left]{3} (w);
+	\path[-, thick] (v) edge node[right]{3} (w);
+	\path[-, thick] (u) edge node[above]{11} (y);
+	\path[-, thick] (y) edge node[right]{9} (t);
+	\path[-, thick] (y) edge node[left]{1} (x);
+	\path[-, thick] (y) edge node[left]{4} (z);
+	\path[-, thick] (x) edge node[left]{6} (z);
+	\path[-, thick] (t) edge node[right]{3} (z);
+	\path[-, thick] (w) edge node[below]{12} (z);
+	\path[-, thick] (x) edge node[below]{8} (w);
+	\path[-, thick] (v) edge [red] node[black, above]{2} (x);
+	\path[-, thick] (v) edge node[above]{6} (y);
+
+	\end{tikzpicture}
+\end{figure}
+
+\newpage
+
+Visit the vertex \textbf{y} and repeat the steps above.
+
+\begin{figure}[H]
+	\centering
+    \begin{tikzpicture}
+    \tikzstyle{every state}=[
+        draw = black,
+        thick,
+        fill = white,
+        minimum size = 4mm,
+        circle
+    ]
+    \tikzstyle{red state}=[
+        draw = red,
+        thick,
+        fill = white,
+        minimum size = 4mm,
+        circle
+    ]
+
+	\node[red state]   (s) at (-1, 2)    {0};
+	\node[red state]   (u) at (0, 4)     {4};
+	\node[red state]   (y) at (5, 4)     {8};
+	\node[red state]   (w) at (0, 0)     {3};
+	\node[every state] (z) at (5, 0)     {12};
+	\node[red state]   (v) at (1, 2)     {5};
+    \node[red state]   (x) at (4, 2)     {7};
+    \node[every state] (t) at (6, 2)     {17};
+
+	\path[-, thick] (u) edge [red] [bend right=90] node[black, left]{1} (w);
+	\path[-, thick] (s) edge node[left]{4} (u);
+	\path[-, thick] (s) edge [red] node[black, above]{5} (v);
+	\path[-, thick] (u) edge node[right]{8} (v);
+	\draw[-, thick] (s) edge [red] node[black, left]{3} (w);
+	\path[-, thick] (v) edge node[right]{3} (w);
+	\path[-, thick] (u) edge node[above]{11} (y);
+	\path[-, thick] (y) edge node[right]{9} (t);
+	\path[-, thick] (y) edge [red] node[black, left]{1} (x);
+	\path[-, thick] (y) edge node[left]{4} (z);
+	\path[-, thick] (x) edge node[left]{6} (z);
+	\path[-, thick] (t) edge node[right]{3} (z);
+	\path[-, thick] (w) edge node[below]{12} (z);
+	\path[-, thick] (x) edge node[below]{8} (w);
+	\path[-, thick] (v) edge [red] node[black, above]{2} (x);
+	\path[-, thick] (v) edge node[above]{6} (y);
+
+	\end{tikzpicture}
+\end{figure}
+
+Visit the vertex \textbf{z} and repeat the steps above.
+
+\begin{figure}[H]
+	\centering
+    \begin{tikzpicture}
+    \tikzstyle{every state}=[
+        draw = black,
+        thick,
+        fill = white,
+        minimum size = 4mm,
+        circle
+    ]
+    \tikzstyle{red state}=[
+        draw = red,
+        thick,
+        fill = white,
+        minimum size = 4mm,
+        circle
+    ]
+
+	\node[red state]   (s) at (-1, 2)    {0};
+	\node[red state]   (u) at (0, 4)     {4};
+	\node[red state]   (y) at (5, 4)     {8};
+	\node[red state]   (w) at (0, 0)     {3};
+	\node[red state]   (z) at (5, 0)     {12};
+	\node[red state]   (v) at (1, 2)     {5};
+    \node[red state]   (x) at (4, 2)     {7};
+    \node[every state] (t) at (6, 2)     {15};
+
+	\path[-, thick] (u) edge [red] [bend right=90] node[black, left]{1} (w);
+	\path[-, thick] (s) edge node[left]{4} (u);
+	\path[-, thick] (s) edge [red] node[black, above]{5} (v);
+	\path[-, thick] (u) edge node[right]{8} (v);
+	\draw[-, thick] (s) edge [red] node[black, left]{3} (w);
+	\path[-, thick] (v) edge node[right]{3} (w);
+	\path[-, thick] (u) edge node[above]{11} (y);
+	\path[-, thick] (y) edge node[right]{9} (t);
+	\path[-, thick] (y) edge [red] node[black, left]{1} (x);
+	\path[-, thick] (y) edge [red] node[black, left]{4} (z);
+	\path[-, thick] (x) edge node[left]{6} (z);
+	\path[-, thick] (t) edge node[right]{3} (z);
+	\path[-, thick] (w) edge node[below]{12} (z);
+	\path[-, thick] (x) edge node[below]{8} (w);
+	\path[-, thick] (v) edge [red] node[black, above]{2} (x);
+	\path[-, thick] (v) edge node[above]{6} (y);
+
+	\end{tikzpicture}
+\end{figure}
+
+Visit the vertex \textbf{t} and halt the algorithm, since we visited the desired ending vertex.
+
+\begin{figure}[H]
+	\centering
+    \begin{tikzpicture}
+    \tikzstyle{every state}=[
+        draw = black,
+        thick,
+        fill = white,
+        minimum size = 4mm,
+        circle
+    ]
+    \tikzstyle{red state}=[
+        draw = red,
+        thick,
+        fill = white,
+        minimum size = 4mm,
+        circle
+    ]
+
+	\node[red state]   (s) at (-1, 2)    {0};
+	\node[red state]   (u) at (0, 4)     {4};
+	\node[red state]   (y) at (5, 4)     {8};
+	\node[red state]   (w) at (0, 0)     {3};
+	\node[red state]   (z) at (5, 0)     {12};
+	\node[red state]   (v) at (1, 2)     {5};
+    \node[red state]   (x) at (4, 2)     {7};
+    \node[red state]   (t) at (6, 2)     {15};
+
+	\path[-, thick] (u) edge [red] [bend right=90] node[black, left]{1} (w);
+	\path[-, thick] (s) edge       node[left]{4} (u);
+	\path[-, thick] (s) edge [red] node[black, above]{5} (v);
+	\path[-, thick] (u) edge       node[right]{8} (v);
+	\draw[-, thick] (s) edge [red] node[black, left]{3} (w);
+	\path[-, thick] (v) edge       node[right]{3} (w);
+	\path[-, thick] (u) edge       node[above]{11} (y);
+	\path[-, thick] (y) edge       node[right]{9} (t);
+	\path[-, thick] (y) edge [red] node[black, left]{1} (x);
+	\path[-, thick] (y) edge [red] node[black, left]{4} (z);
+	\path[-, thick] (x) edge       node[left]{6} (z);
+	\path[-, thick] (t) edge [red] node[black, right]{3} (z);
+	\path[-, thick] (w) edge       node[below]{12} (z);
+	\path[-, thick] (x) edge       node[below]{8} (w);
+	\path[-, thick] (v) edge [red] node[black, above]{2} (x);
+	\path[-, thick] (v) edge       node[above]{6} (y);
+
+	\end{tikzpicture}
+\end{figure}
+
+Therefore, the shortest path between the vertex \textbf{s} and the vertex \textbf{t} is $(\textbf{s}, \textbf{v}, \textbf{x}, \textbf{y}, \textbf{z}, \textbf{t})$ and its length is 15.
+
+\newpage
 
 \section*{Answer 4}
 
