@@ -28,12 +28,81 @@ Id Number : 2521300 \\
 
 % Write your answers below the section tags
 \section*{Answer 1}
+
 The graph $G$ can be represented by a pair $(V, E)$ where $V$ is the set of vertices, and $E$ is the set of edges.
 $V = \{\textbf{a}, \textbf{b}, \textbf{c}, \textbf{d}, \textbf{e}\}$ and $E = \{\{\textbf{a}, \textbf{b}\}, \{\textbf{a}, \textbf{c}\}, \{\textbf{a}, \textbf{e}\}, \{\textbf{b}, \textbf{c}\}, \{\textbf{b}, \textbf{e}\}, \{\textbf{c}, \textbf{d}\}, \{\textbf{d}, \textbf{e}\}\}$.
 Therefore, $|V| = 5$, and $|E| = 7$.
+
 \begin{enumerate}
-    \item $\displaystyle\sum_{v \in V} \text{deg}(v) = 2 \cdot |E| = 14$ since all edges increase the degree of two vertices they connect by one.
-    \item another item
+
+\item
+$\displaystyle\sum_{v \in V} \text{deg}(v) = 2 \cdot |E| = 14$ by handshaking lemma, since all edges increase the degree of vertices they connect by one.
+The sum of degrees of all vertices is twice the number of edges since all edges are counted twice.
+
+\item
+Adjacency matrix is $M=
+\begin{bmatrix}
+0 & 1 & 1 & 0 & 1 \\
+1 & 0 & 1 & 0 & 1 \\
+1 & 1 & 0 & 1 & 0 \\
+0 & 0 & 1 & 0 & 1 \\
+1 & 1 & 0 & 1 & 0 \\
+\end{bmatrix}$
+where the item $M_{ij}$ represents the existence of an edge between the nodes $i$ and $j$.
+The vertices are enumerated in the order they are written above.
+There are 14 non-zero entries in the adjacency matrix representation of $G$.
+
+\item
+Incidence matrix is $M=
+\begin{bmatrix}
+1 & 1 & 1 & 0 & 0 & 0 & 0 \\
+1 & 0 & 0 & 1 & 1 & 0 & 0 \\
+0 & 1 & 0 & 1 & 0 & 1 & 0 \\
+0 & 0 & 0 & 0 & 0 & 1 & 1 \\
+0 & 0 & 1 & 0 & 1 & 0 & 1 \\
+\end{bmatrix}$
+where the item $M_{ij}$ represents the incidence of the vertex $i$ with the edge $j$.
+The rows represent vertices and columns represent edges.
+The edges are enumerated in the order they are written above.
+There are 21 zero entries in the incidence matrix representation of $G$.
+
+\item
+There is not, since $\textbf{c}$ and $\textbf{e}$ are not connected, only one can be chosen, and only two choices are $\{\textbf{a}, \textbf{b}, \textbf{c}, \textbf{d}\}$ and $\{\textbf{a}, \textbf{b}, \textbf{d}, \textbf{e}\}$, both of which are obviously not connected since $\textbf{d}$ is not connected to $\textbf{b}$.
+
+\item
+No, it is not, since $\{\textbf{a}, \textbf{b}, \textbf{c}\}$ are all connected, it is not possible to place them in two disjoint and independent sets such that there is no edge connecting between two elements in the same set.
+One can exhaust all possibilities by trying $\{\{\textbf{a}, \textbf{b}\}, \{\textbf{c}\}\}$, $\{\{\textbf{a}, \textbf{c}\}, \{\textbf{b}\}\}$, $\{\{\textbf{b}, \textbf{c}\}, \{\textbf{a}\}\}$.
+Since a subgraph of $G$ is not bipartite, adding new nodes to that subgraph would not be able to fix that and therefore $G$ is not bipartite.
+
+\item
+For every undirected edge, we can choose two directions, and therefore we have $2^{|E|} = 2^7 = 128$ different directed graphs that have $G$ as their underlying graph.
+
+\newpage
+
+\item
+The vertices $\{\textbf{a}, \textbf{b}, \textbf{c}, \textbf{e}\}$ have odd degrees, therefore we cannot visit all edges, i.e. create a Euler path, since when we enter a vertex, we have to leave it.
+The only exception to this rule is for the first and the last vertices, which there are two of.
+A simple path can be represented by the sequence of vertices such as $(\textbf{a}, \textbf{b}, \textbf{c}, \textbf{d}, \textbf{e}, \textbf{a}, \textbf{c})$ in order.
+The path contains 6 edges in total.
+Therefore, the longest simple path is of length 6.
+
+\item
+There is only one, and it is the graph itself, since all vertices are connected, i.e. there exists a path between every pair of vertices.
+The are $\binom{5}{2} = 10$ pairs, and the path between each pair is as follows: $\{(\textbf{a}, \textbf{b}), (\textbf{a}, \textbf{c}), (\textbf{a}, \textbf{c}, \textbf{d}), (\textbf{a}, \textbf{e}), (\textbf{b}, \textbf{c}), (\textbf{b}, \textbf{c}, \textbf{d}), (\textbf{b}, \textbf{e}), (\textbf{c}, \textbf{d}), (\textbf{c}, \textbf{d}, \textbf{e}), (\textbf{d}, \textbf{e})\}$.
+
+\item
+Since the graph does not have an Euler path as explained in item \textbf{j)}, it does not have an Euler circuit since Euler circuits are a subset of Euler paths.
+
+\item
+The graph $G$ does not have an Euler path, since there are 4 vertices with odd degrees, $\{\textbf{a}, \textbf{b}, \textbf{c}, \textbf{e}\}$.
+There must be either no vertices with odd degrees or exactly two vertices with an odd degree to create an Euler path.
+
+\item
+Yes, it has many, one example being $(\textbf{a}, \textbf{b}, \textbf{c}, \textbf{d}, \textbf{e}, \textbf{a})$.
+
+\item
+Yes, it has many, one example being $(\textbf{a}, \textbf{b}, \textbf{c}, \textbf{d}, \textbf{e})$.
+
 \end{enumerate}
 
 \section*{Answer 2}
