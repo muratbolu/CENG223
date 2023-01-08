@@ -628,5 +628,779 @@ Therefore, the shortest path between the vertex \textbf{s} and the vertex \textb
 
 \section*{Answer 4}
 
+The graph $G$ can be represented by a triple $(V, E, W)$ where $V$ is the set of vertices, $E$ is the set of edges, and $W$ is the weight function from the set of edges $E$ to real numbers $\mathbb{R}$.
+
+\begin{gather*}
+V = \{\textbf{a}, \textbf{b}, \textbf{c}, \textbf{d}, \textbf{e}, \textbf{f}, \textbf{g}, \textbf{h}, \textbf{i}, \textbf{j}, \textbf{k}\}
+\end{gather*}
+
+\begin{align*}
+E = \{
+    \{\textbf{a}, \textbf{b}\},
+    \{\textbf{a}, \textbf{e}\},
+    \{\textbf{a}, \textbf{h}\},& \\
+    \{\textbf{b}, \textbf{c}\},
+    \{\textbf{b}, \textbf{e}\},
+    \{\textbf{b}, \textbf{f}\},& \\
+    \{\textbf{c}, \textbf{d}\},
+    \{\textbf{c}, \textbf{f}\},
+    \{\textbf{c}, \textbf{g}\},& \\
+    \{\textbf{d}, \textbf{g}\},
+    \{\textbf{d}, \textbf{k}\},& \\
+    \{\textbf{e}, \textbf{f}\},
+    \{\textbf{e}, \textbf{h}\},& \\
+    \{\textbf{f}, \textbf{g}\},
+    \{\textbf{f}, \textbf{h}\},
+    \{\textbf{f}, \textbf{i}\},
+    \{\textbf{f}, \textbf{j}\},& \\
+    \{\textbf{g}, \textbf{k}\},
+    \{\textbf{g}, \textbf{j}\},& \\
+    \{\textbf{k}, \textbf{j}\},& \\
+    \{\textbf{h}, \textbf{i}\},& \\
+    \{\textbf{i}, \textbf{j}\},&
+    \}
+\end{align*}
+
+\begin{align*}
+W: E \mapsto \mathbb{R},\ W = \{
+    (\{\textbf{a}, \textbf{b}\}, 3),
+    (\{\textbf{a}, \textbf{e}\}, 5),
+    (\{\textbf{a}, \textbf{h}\}, 8),& \\
+    (\{\textbf{b}, \textbf{c}\}, 2),
+    (\{\textbf{b}, \textbf{e}\}, 5),
+    (\{\textbf{b}, \textbf{f}\}, 7),& \\
+    (\{\textbf{c}, \textbf{d}\}, 3),
+    (\{\textbf{c}, \textbf{f}\}, 2),
+    (\{\textbf{c}, \textbf{g}\}, 6),& \\
+    (\{\textbf{d}, \textbf{g}\}, 7),
+    (\{\textbf{d}, \textbf{k}\}, 2),& \\
+    (\{\textbf{e}, \textbf{f}\}, 4),
+    (\{\textbf{e}, \textbf{h}\}, 7),& \\
+    (\{\textbf{f}, \textbf{g}\}, 4),
+    (\{\textbf{f}, \textbf{h}\}, 5),
+    (\{\textbf{f}, \textbf{i}\}, 4),
+    (\{\textbf{f}, \textbf{j}\}, 3),& \\
+    (\{\textbf{g}, \textbf{k}\}, 6),
+    (\{\textbf{g}, \textbf{j}\}, 4),& \\
+    (\{\textbf{k}, \textbf{j}\}, 5),& \\
+    (\{\textbf{h}, \textbf{i}\}, 2),& \\
+    (\{\textbf{i}, \textbf{j}\}, 6),&
+\}
+\end{align*}
+
+\newpage
+\noindent
+I am going to use Kruskal's algorithm to generate the minimum spanning tree.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+	
+	\node[shape=circle,draw=black] (a) at (-2, 2)    {\textbf{a}};
+	\node[shape=circle,draw=black] (b) at (0, 4)     {\textbf{b}};
+	\node[shape=circle,draw=black] (c) at (2, 4)     {\textbf{c}};
+	\node[shape=circle,draw=black] (d) at (4, 4)     {\textbf{d}};
+	\node[shape=circle,draw=black] (e) at (0, 2)     {\textbf{e}};
+	\node[shape=circle,draw=black] (f) at (2, 2)     {\textbf{f}};
+	\node[shape=circle,draw=black] (g) at (4, 2)     {\textbf{g}};
+	\node[shape=circle,draw=black] (h) at (0, 0)     {\textbf{h}};
+	\node[shape=circle,draw=black] (i) at (2, 0)     {\textbf{i}};
+	\node[shape=circle,draw=black] (j) at (4, 0)     {\textbf{j}};
+	\node[shape=circle,draw=black] (k) at (6, 2)     {\textbf{k}};
+	
+	\path[-, thick] (a) edge node[left]{3}  (b);
+	\path[-, thick] (a) edge node[above]{5} (e);
+	\path[-, thick] (a) edge node[right]{8} (h);
+	\path[-, thick] (b) edge node[above]{2} (c);
+	\path[-, thick] (b) edge node[right]{5} (e);
+	\path[-, thick] (b) edge node[right]{7} (f);
+	\path[-, thick] (c) edge node[above]{3} (d);
+	\path[-, thick] (c) edge node[right]{2} (f);
+	\path[-, thick] (c) edge node[right]{6} (g);
+	\path[-, thick] (d) edge node[right]{7} (g);
+	\path[-, thick] (d) edge node[right]{2} (k);
+	\path[-, thick] (e) edge node[above]{4} (f);
+	\path[-, thick] (e) edge node[right]{7} (h);
+	\path[-, thick] (f) edge node[above]{4} (g);
+	\path[-, thick] (f) edge node[left]{5}  (h);
+	\path[-, thick] (f) edge node[right]{4} (i);
+	\path[-, thick] (f) edge node[right]{3} (j);
+	\path[-, thick] (g) edge node[right]{4} (j);
+	\path[-, thick] (g) edge node[above]{6} (k);
+	\path[-, thick] (h) edge node[above]{2} (i);
+	\path[-, thick] (i) edge node[above]{6} (j);
+	\path[-, thick] (j) edge node[left]{5}  (k);
+	
+	\end{tikzpicture} 
+\end{figure}
+
+Create the minimum spanning tree by choosing the unchosen edges with the smallest weights that do not create a cycle within the previously created sub-trees.
+The smallest edges have the weight 2.
+We can choose any one of them, and in the end the total sum of the weights of the edges of the minimum spanning tree will be the same.
+However, the composure of the tree may be different.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+    \tikzstyle{every state}=[
+        draw = black,
+        thick,
+        fill = white,
+        minimum size = 4mm,
+        circle
+    ]
+    \tikzstyle{red state}=[
+        draw = red,
+        thick,
+        fill = white,
+        minimum size = 4mm,
+        circle
+    ]
+	
+	\node[every state] (a) at (-2, 2)    {\textbf{a}};
+	\node[red state]   (b) at (0, 4)     {\textbf{b}};
+	\node[red state]   (c) at (2, 4)     {\textbf{c}};
+	\node[every state] (d) at (4, 4)     {\textbf{d}};
+	\node[every state] (e) at (0, 2)     {\textbf{e}};
+	\node[every state] (f) at (2, 2)     {\textbf{f}};
+	\node[every state] (g) at (4, 2)     {\textbf{g}};
+	\node[every state] (h) at (0, 0)     {\textbf{h}};
+	\node[every state] (i) at (2, 0)     {\textbf{i}};
+	\node[every state] (j) at (4, 0)     {\textbf{j}};
+	\node[every state] (k) at (6, 2)     {\textbf{k}};
+	
+	\path[-, thick] (a) edge       node[left]{3}         (b);
+	\path[-, thick] (a) edge       node[above]{5}        (e);
+	\path[-, thick] (a) edge       node[right]{8}        (h);
+	\path[-, thick] (b) edge [red] node[black, above]{2} (c);
+	\path[-, thick] (b) edge       node[right]{5}        (e);
+	\path[-, thick] (b) edge       node[right]{7}        (f);
+	\path[-, thick] (c) edge       node[above]{3}        (d);
+	\path[-, thick] (c) edge       node[right]{2}        (f);
+	\path[-, thick] (c) edge       node[right]{6}        (g);
+	\path[-, thick] (d) edge       node[right]{7}        (g);
+	\path[-, thick] (d) edge       node[right]{2}        (k);
+	\path[-, thick] (e) edge       node[above]{4}        (f);
+	\path[-, thick] (e) edge       node[right]{7}        (h);
+	\path[-, thick] (f) edge       node[above]{4}        (g);
+	\path[-, thick] (f) edge       node[left]{5}         (h);
+	\path[-, thick] (f) edge       node[right]{4}        (i);
+	\path[-, thick] (f) edge       node[right]{3}        (j);
+	\path[-, thick] (g) edge       node[right]{4}        (j);
+	\path[-, thick] (g) edge       node[above]{6}        (k);
+	\path[-, thick] (h) edge       node[above]{2}        (i);
+	\path[-, thick] (i) edge       node[above]{6}        (j);
+	\path[-, thick] (j) edge       node[left]{5}         (k);
+	
+	\end{tikzpicture} 
+\end{figure}
+
+Continue adding the edges with the weight 2, making sure that edges do not create a cycle within a tree.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+    \tikzstyle{every state}=[
+        draw = black,
+        thick,
+        fill = white,
+        minimum size = 4mm,
+        circle
+    ]
+    \tikzstyle{red state}=[
+        draw = red,
+        thick,
+        fill = white,
+        minimum size = 4mm,
+        circle
+    ]
+	
+	\node[every state] (a) at (-2, 2)    {\textbf{a}};
+	\node[red state]   (b) at (0, 4)     {\textbf{b}};
+	\node[red state]   (c) at (2, 4)     {\textbf{c}};
+	\node[every state] (d) at (4, 4)     {\textbf{d}};
+	\node[every state] (e) at (0, 2)     {\textbf{e}};
+	\node[red state]   (f) at (2, 2)     {\textbf{f}};
+	\node[every state] (g) at (4, 2)     {\textbf{g}};
+	\node[every state] (h) at (0, 0)     {\textbf{h}};
+	\node[every state] (i) at (2, 0)     {\textbf{i}};
+	\node[every state] (j) at (4, 0)     {\textbf{j}};
+	\node[every state] (k) at (6, 2)     {\textbf{k}};
+	
+	\path[-, thick] (a) edge       node[left]{3}         (b);
+	\path[-, thick] (a) edge       node[above]{5}        (e);
+	\path[-, thick] (a) edge       node[right]{8}        (h);
+	\path[-, thick] (b) edge [red] node[black, above]{2} (c);
+	\path[-, thick] (b) edge       node[right]{5}        (e);
+	\path[-, thick] (b) edge       node[right]{7}        (f);
+	\path[-, thick] (c) edge       node[above]{3}        (d);
+	\path[-, thick] (c) edge [red] node[black, right]{2} (f);
+	\path[-, thick] (c) edge       node[right]{6}        (g);
+	\path[-, thick] (d) edge       node[right]{7}        (g);
+	\path[-, thick] (d) edge       node[right]{2}        (k);
+	\path[-, thick] (e) edge       node[above]{4}        (f);
+	\path[-, thick] (e) edge       node[right]{7}        (h);
+	\path[-, thick] (f) edge       node[above]{4}        (g);
+	\path[-, thick] (f) edge       node[left]{5}         (h);
+	\path[-, thick] (f) edge       node[right]{4}        (i);
+	\path[-, thick] (f) edge       node[right]{3}        (j);
+	\path[-, thick] (g) edge       node[right]{4}        (j);
+	\path[-, thick] (g) edge       node[above]{6}        (k);
+	\path[-, thick] (h) edge       node[above]{2}        (i);
+	\path[-, thick] (i) edge       node[above]{6}        (j);
+	\path[-, thick] (j) edge       node[left]{5}         (k);
+	
+	\end{tikzpicture} 
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+    \tikzstyle{every state}=[
+        draw = black,
+        thick,
+        fill = white,
+        minimum size = 4mm,
+        circle
+    ]
+    \tikzstyle{red state}=[
+        draw = red,
+        thick,
+        fill = white,
+        minimum size = 4mm,
+        circle
+    ]
+	
+	\node[every state] (a) at (-2, 2)    {\textbf{a}};
+	\node[red state]   (b) at (0, 4)     {\textbf{b}};
+	\node[red state]   (c) at (2, 4)     {\textbf{c}};
+	\node[red state]   (d) at (4, 4)     {\textbf{d}};
+	\node[every state] (e) at (0, 2)     {\textbf{e}};
+	\node[red state]   (f) at (2, 2)     {\textbf{f}};
+	\node[every state] (g) at (4, 2)     {\textbf{g}};
+	\node[every state] (h) at (0, 0)     {\textbf{h}};
+	\node[every state] (i) at (2, 0)     {\textbf{i}};
+	\node[every state] (j) at (4, 0)     {\textbf{j}};
+	\node[red state]   (k) at (6, 2)     {\textbf{k}};
+	
+	\path[-, thick] (a) edge       node[left]{3}         (b);
+	\path[-, thick] (a) edge       node[above]{5}        (e);
+	\path[-, thick] (a) edge       node[right]{8}        (h);
+	\path[-, thick] (b) edge [red] node[black, above]{2} (c);
+	\path[-, thick] (b) edge       node[right]{5}        (e);
+	\path[-, thick] (b) edge       node[right]{7}        (f);
+	\path[-, thick] (c) edge       node[above]{3}        (d);
+	\path[-, thick] (c) edge [red] node[black, right]{2} (f);
+	\path[-, thick] (c) edge       node[right]{6}        (g);
+	\path[-, thick] (d) edge       node[right]{7}        (g);
+	\path[-, thick] (d) edge [red] node[black, right]{2} (k);
+	\path[-, thick] (e) edge       node[above]{4}        (f);
+	\path[-, thick] (e) edge       node[right]{7}        (h);
+	\path[-, thick] (f) edge       node[above]{4}        (g);
+	\path[-, thick] (f) edge       node[left]{5}         (h);
+	\path[-, thick] (f) edge       node[right]{4}        (i);
+	\path[-, thick] (f) edge       node[right]{3}        (j);
+	\path[-, thick] (g) edge       node[right]{4}        (j);
+	\path[-, thick] (g) edge       node[above]{6}        (k);
+	\path[-, thick] (h) edge       node[above]{2}        (i);
+	\path[-, thick] (i) edge       node[above]{6}        (j);
+	\path[-, thick] (j) edge       node[left]{5}         (k);
+	
+	\end{tikzpicture} 
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+    \tikzstyle{every state}=[
+        draw = black,
+        thick,
+        fill = white,
+        minimum size = 4mm,
+        circle
+    ]
+    \tikzstyle{red state}=[
+        draw = red,
+        thick,
+        fill = white,
+        minimum size = 4mm,
+        circle
+    ]
+	
+	\node[every state] (a) at (-2, 2)    {\textbf{a}};
+	\node[red state]   (b) at (0, 4)     {\textbf{b}};
+	\node[red state]   (c) at (2, 4)     {\textbf{c}};
+	\node[red state]   (d) at (4, 4)     {\textbf{d}};
+	\node[every state] (e) at (0, 2)     {\textbf{e}};
+	\node[red state]   (f) at (2, 2)     {\textbf{f}};
+	\node[every state] (g) at (4, 2)     {\textbf{g}};
+	\node[red state]   (h) at (0, 0)     {\textbf{h}};
+	\node[red state]   (i) at (2, 0)     {\textbf{i}};
+	\node[every state] (j) at (4, 0)     {\textbf{j}};
+	\node[red state]   (k) at (6, 2)     {\textbf{k}};
+	
+	\path[-, thick] (a) edge       node[left]{3}         (b);
+	\path[-, thick] (a) edge       node[above]{5}        (e);
+	\path[-, thick] (a) edge       node[right]{8}        (h);
+	\path[-, thick] (b) edge [red] node[black, above]{2} (c);
+	\path[-, thick] (b) edge       node[right]{5}        (e);
+	\path[-, thick] (b) edge       node[right]{7}        (f);
+	\path[-, thick] (c) edge       node[above]{3}        (d);
+	\path[-, thick] (c) edge [red] node[black, right]{2} (f);
+	\path[-, thick] (c) edge       node[right]{6}        (g);
+	\path[-, thick] (d) edge       node[right]{7}        (g);
+	\path[-, thick] (d) edge [red] node[black, right]{2} (k);
+	\path[-, thick] (e) edge       node[above]{4}        (f);
+	\path[-, thick] (e) edge       node[right]{7}        (h);
+	\path[-, thick] (f) edge       node[above]{4}        (g);
+	\path[-, thick] (f) edge       node[left]{5}         (h);
+	\path[-, thick] (f) edge       node[right]{4}        (i);
+	\path[-, thick] (f) edge       node[right]{3}        (j);
+	\path[-, thick] (g) edge       node[right]{4}        (j);
+	\path[-, thick] (g) edge       node[above]{6}        (k);
+	\path[-, thick] (h) edge [red] node[black, above]{2} (i);
+	\path[-, thick] (i) edge       node[above]{6}        (j);
+	\path[-, thick] (j) edge       node[left]{5}         (k);
+	
+	\end{tikzpicture} 
+\end{figure}
+
+Since the all edges with weight 2 are exhausted, continue adding edges with the minimum weight, in this case, 3.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+    \tikzstyle{every state}=[
+        draw = black,
+        thick,
+        fill = white,
+        minimum size = 4mm,
+        circle
+    ]
+    \tikzstyle{red state}=[
+        draw = red,
+        thick,
+        fill = white,
+        minimum size = 4mm,
+        circle
+    ]
+	
+	\node[red state]   (a) at (-2, 2)    {\textbf{a}};
+	\node[red state]   (b) at (0, 4)     {\textbf{b}};
+	\node[red state]   (c) at (2, 4)     {\textbf{c}};
+	\node[red state]   (d) at (4, 4)     {\textbf{d}};
+	\node[every state] (e) at (0, 2)     {\textbf{e}};
+	\node[red state]   (f) at (2, 2)     {\textbf{f}};
+	\node[every state] (g) at (4, 2)     {\textbf{g}};
+	\node[red state]   (h) at (0, 0)     {\textbf{h}};
+	\node[red state]   (i) at (2, 0)     {\textbf{i}};
+	\node[every state] (j) at (4, 0)     {\textbf{j}};
+	\node[red state]   (k) at (6, 2)     {\textbf{k}};
+	
+	\path[-, thick] (a) edge [red] node[black, left]{3}  (b);
+	\path[-, thick] (a) edge       node[above]{5}        (e);
+	\path[-, thick] (a) edge       node[right]{8}        (h);
+	\path[-, thick] (b) edge [red] node[black, above]{2} (c);
+	\path[-, thick] (b) edge       node[right]{5}        (e);
+	\path[-, thick] (b) edge       node[right]{7}        (f);
+	\path[-, thick] (c) edge       node[above]{3}        (d);
+	\path[-, thick] (c) edge [red] node[black, right]{2} (f);
+	\path[-, thick] (c) edge       node[right]{6}        (g);
+	\path[-, thick] (d) edge       node[right]{7}        (g);
+	\path[-, thick] (d) edge [red] node[black, right]{2} (k);
+	\path[-, thick] (e) edge       node[above]{4}        (f);
+	\path[-, thick] (e) edge       node[right]{7}        (h);
+	\path[-, thick] (f) edge       node[above]{4}        (g);
+	\path[-, thick] (f) edge       node[left]{5}         (h);
+	\path[-, thick] (f) edge       node[right]{4}        (i);
+	\path[-, thick] (f) edge       node[right]{3}        (j);
+	\path[-, thick] (g) edge       node[right]{4}        (j);
+	\path[-, thick] (g) edge       node[above]{6}        (k);
+	\path[-, thick] (h) edge [red] node[black, above]{2} (i);
+	\path[-, thick] (i) edge       node[above]{6}        (j);
+	\path[-, thick] (j) edge       node[left]{5}         (k);
+	
+	\end{tikzpicture} 
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+    \tikzstyle{every state}=[
+        draw = black,
+        thick,
+        fill = white,
+        minimum size = 4mm,
+        circle
+    ]
+    \tikzstyle{red state}=[
+        draw = red,
+        thick,
+        fill = white,
+        minimum size = 4mm,
+        circle
+    ]
+	
+	\node[red state]   (a) at (-2, 2)    {\textbf{a}};
+	\node[red state]   (b) at (0, 4)     {\textbf{b}};
+	\node[red state]   (c) at (2, 4)     {\textbf{c}};
+	\node[red state]   (d) at (4, 4)     {\textbf{d}};
+	\node[every state] (e) at (0, 2)     {\textbf{e}};
+	\node[red state]   (f) at (2, 2)     {\textbf{f}};
+	\node[every state] (g) at (4, 2)     {\textbf{g}};
+	\node[red state]   (h) at (0, 0)     {\textbf{h}};
+	\node[red state]   (i) at (2, 0)     {\textbf{i}};
+	\node[every state] (j) at (4, 0)     {\textbf{j}};
+	\node[red state]   (k) at (6, 2)     {\textbf{k}};
+	
+	\path[-, thick] (a) edge [red] node[black, left]{3}  (b);
+	\path[-, thick] (a) edge       node[above]{5}        (e);
+	\path[-, thick] (a) edge       node[right]{8}        (h);
+	\path[-, thick] (b) edge [red] node[black, above]{2} (c);
+	\path[-, thick] (b) edge       node[right]{5}        (e);
+	\path[-, thick] (b) edge       node[right]{7}        (f);
+	\path[-, thick] (c) edge [red] node[black, above]{3} (d);
+	\path[-, thick] (c) edge [red] node[black, right]{2} (f);
+	\path[-, thick] (c) edge       node[right]{6}        (g);
+	\path[-, thick] (d) edge       node[right]{7}        (g);
+	\path[-, thick] (d) edge [red] node[black, right]{2} (k);
+	\path[-, thick] (e) edge       node[above]{4}        (f);
+	\path[-, thick] (e) edge       node[right]{7}        (h);
+	\path[-, thick] (f) edge       node[above]{4}        (g);
+	\path[-, thick] (f) edge       node[left]{5}         (h);
+	\path[-, thick] (f) edge       node[right]{4}        (i);
+	\path[-, thick] (f) edge       node[right]{3}        (j);
+	\path[-, thick] (g) edge       node[right]{4}        (j);
+	\path[-, thick] (g) edge       node[above]{6}        (k);
+	\path[-, thick] (h) edge [red] node[black, above]{2} (i);
+	\path[-, thick] (i) edge       node[above]{6}        (j);
+	\path[-, thick] (j) edge       node[left]{5}         (k);
+	
+	\end{tikzpicture} 
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+    \tikzstyle{every state}=[
+        draw = black,
+        thick,
+        fill = white,
+        minimum size = 4mm,
+        circle
+    ]
+    \tikzstyle{red state}=[
+        draw = red,
+        thick,
+        fill = white,
+        minimum size = 4mm,
+        circle
+    ]
+	
+	\node[red state]   (a) at (-2, 2)    {\textbf{a}};
+	\node[red state]   (b) at (0, 4)     {\textbf{b}};
+	\node[red state]   (c) at (2, 4)     {\textbf{c}};
+	\node[red state]   (d) at (4, 4)     {\textbf{d}};
+	\node[every state] (e) at (0, 2)     {\textbf{e}};
+	\node[red state]   (f) at (2, 2)     {\textbf{f}};
+	\node[every state] (g) at (4, 2)     {\textbf{g}};
+	\node[red state]   (h) at (0, 0)     {\textbf{h}};
+	\node[red state]   (i) at (2, 0)     {\textbf{i}};
+	\node[red state]   (j) at (4, 0)     {\textbf{j}};
+	\node[red state]   (k) at (6, 2)     {\textbf{k}};
+	
+	\path[-, thick] (a) edge [red] node[black, left]{3}  (b);
+	\path[-, thick] (a) edge       node[above]{5}        (e);
+	\path[-, thick] (a) edge       node[right]{8}        (h);
+	\path[-, thick] (b) edge [red] node[black, above]{2} (c);
+	\path[-, thick] (b) edge       node[right]{5}        (e);
+	\path[-, thick] (b) edge       node[right]{7}        (f);
+	\path[-, thick] (c) edge [red] node[black, above]{3} (d);
+	\path[-, thick] (c) edge [red] node[black, right]{2} (f);
+	\path[-, thick] (c) edge       node[right]{6}        (g);
+	\path[-, thick] (d) edge       node[right]{7}        (g);
+	\path[-, thick] (d) edge [red] node[black, right]{2} (k);
+	\path[-, thick] (e) edge       node[above]{4}        (f);
+	\path[-, thick] (e) edge       node[right]{7}        (h);
+	\path[-, thick] (f) edge       node[above]{4}        (g);
+	\path[-, thick] (f) edge       node[left]{5}         (h);
+	\path[-, thick] (f) edge       node[right]{4}        (i);
+	\path[-, thick] (f) edge [red] node[black, right]{3} (j);
+	\path[-, thick] (g) edge       node[right]{4}        (j);
+	\path[-, thick] (g) edge       node[above]{6}        (k);
+	\path[-, thick] (h) edge [red] node[black, above]{2} (i);
+	\path[-, thick] (i) edge       node[above]{6}        (j);
+	\path[-, thick] (j) edge       node[left]{5}         (k);
+	
+	\end{tikzpicture} 
+\end{figure}
+
+Continue with adding edges with weight 4, making sure that no cycles are created and the minimum spanning tree has not been generated yet.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+    \tikzstyle{every state}=[
+        draw = black,
+        thick,
+        fill = white,
+        minimum size = 4mm,
+        circle
+    ]
+    \tikzstyle{red state}=[
+        draw = red,
+        thick,
+        fill = white,
+        minimum size = 4mm,
+        circle
+    ]
+	
+	\node[red state]   (a) at (-2, 2)    {\textbf{a}};
+	\node[red state]   (b) at (0, 4)     {\textbf{b}};
+	\node[red state]   (c) at (2, 4)     {\textbf{c}};
+	\node[red state]   (d) at (4, 4)     {\textbf{d}};
+	\node[red state]   (e) at (0, 2)     {\textbf{e}};
+	\node[red state]   (f) at (2, 2)     {\textbf{f}};
+	\node[every state] (g) at (4, 2)     {\textbf{g}};
+	\node[red state]   (h) at (0, 0)     {\textbf{h}};
+	\node[red state]   (i) at (2, 0)     {\textbf{i}};
+	\node[red state]   (j) at (4, 0)     {\textbf{j}};
+	\node[red state]   (k) at (6, 2)     {\textbf{k}};
+	
+	\path[-, thick] (a) edge [red] node[black, left]{3}  (b);
+	\path[-, thick] (a) edge       node[above]{5}        (e);
+	\path[-, thick] (a) edge       node[right]{8}        (h);
+	\path[-, thick] (b) edge [red] node[black, above]{2} (c);
+	\path[-, thick] (b) edge       node[right]{5}        (e);
+	\path[-, thick] (b) edge       node[right]{7}        (f);
+	\path[-, thick] (c) edge [red] node[black, above]{3} (d);
+	\path[-, thick] (c) edge [red] node[black, right]{2} (f);
+	\path[-, thick] (c) edge       node[right]{6}        (g);
+	\path[-, thick] (d) edge       node[right]{7}        (g);
+	\path[-, thick] (d) edge [red] node[black, right]{2} (k);
+	\path[-, thick] (e) edge [red] node[black, above]{4} (f);
+	\path[-, thick] (e) edge       node[right]{7}        (h);
+	\path[-, thick] (f) edge       node[above]{4}        (g);
+	\path[-, thick] (f) edge       node[left]{5}         (h);
+	\path[-, thick] (f) edge       node[right]{4}        (i);
+	\path[-, thick] (f) edge [red] node[black, right]{3} (j);
+	\path[-, thick] (g) edge       node[right]{4}        (j);
+	\path[-, thick] (g) edge       node[above]{6}        (k);
+	\path[-, thick] (h) edge [red] node[black, above]{2} (i);
+	\path[-, thick] (i) edge       node[above]{6}        (j);
+	\path[-, thick] (j) edge       node[left]{5}         (k);
+	
+	\end{tikzpicture} 
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+    \tikzstyle{every state}=[
+        draw = black,
+        thick,
+        fill = white,
+        minimum size = 4mm,
+        circle
+    ]
+    \tikzstyle{red state}=[
+        draw = red,
+        thick,
+        fill = white,
+        minimum size = 4mm,
+        circle
+    ]
+	
+	\node[red state]   (a) at (-2, 2)    {\textbf{a}};
+	\node[red state]   (b) at (0, 4)     {\textbf{b}};
+	\node[red state]   (c) at (2, 4)     {\textbf{c}};
+	\node[red state]   (d) at (4, 4)     {\textbf{d}};
+	\node[red state]   (e) at (0, 2)     {\textbf{e}};
+	\node[red state]   (f) at (2, 2)     {\textbf{f}};
+	\node[red state]   (g) at (4, 2)     {\textbf{g}};
+	\node[red state]   (h) at (0, 0)     {\textbf{h}};
+	\node[red state]   (i) at (2, 0)     {\textbf{i}};
+	\node[red state]   (j) at (4, 0)     {\textbf{j}};
+	\node[red state]   (k) at (6, 2)     {\textbf{k}};
+	
+	\path[-, thick] (a) edge [red] node[black, left]{3}  (b);
+	\path[-, thick] (a) edge       node[above]{5}        (e);
+	\path[-, thick] (a) edge       node[right]{8}        (h);
+	\path[-, thick] (b) edge [red] node[black, above]{2} (c);
+	\path[-, thick] (b) edge       node[right]{5}        (e);
+	\path[-, thick] (b) edge       node[right]{7}        (f);
+	\path[-, thick] (c) edge [red] node[black, above]{3} (d);
+	\path[-, thick] (c) edge [red] node[black, right]{2} (f);
+	\path[-, thick] (c) edge       node[right]{6}        (g);
+	\path[-, thick] (d) edge       node[right]{7}        (g);
+	\path[-, thick] (d) edge [red] node[black, right]{2} (k);
+	\path[-, thick] (e) edge [red] node[black, above]{4} (f);
+	\path[-, thick] (e) edge       node[right]{7}        (h);
+	\path[-, thick] (f) edge [red] node[black, above]{4} (g);
+	\path[-, thick] (f) edge       node[left]{5}         (h);
+	\path[-, thick] (f) edge       node[right]{4}        (i);
+	\path[-, thick] (f) edge [red] node[black, right]{3} (j);
+	\path[-, thick] (g) edge       node[right]{4}        (j);
+	\path[-, thick] (g) edge       node[above]{6}        (k);
+	\path[-, thick] (h) edge [red] node[black, above]{2} (i);
+	\path[-, thick] (i) edge       node[above]{6}        (j);
+	\path[-, thick] (j) edge       node[left]{5}         (k);
+	
+	\end{tikzpicture} 
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+    \tikzstyle{every state}=[
+        draw = black,
+        thick,
+        fill = white,
+        minimum size = 4mm,
+        circle
+    ]
+    \tikzstyle{red state}=[
+        draw = red,
+        thick,
+        fill = white,
+        minimum size = 4mm,
+        circle
+    ]
+	
+	\node[red state]   (a) at (-2, 2)    {\textbf{a}};
+	\node[red state]   (b) at (0, 4)     {\textbf{b}};
+	\node[red state]   (c) at (2, 4)     {\textbf{c}};
+	\node[red state]   (d) at (4, 4)     {\textbf{d}};
+	\node[red state]   (e) at (0, 2)     {\textbf{e}};
+	\node[red state]   (f) at (2, 2)     {\textbf{f}};
+	\node[red state]   (g) at (4, 2)     {\textbf{g}};
+	\node[red state]   (h) at (0, 0)     {\textbf{h}};
+	\node[red state]   (i) at (2, 0)     {\textbf{i}};
+	\node[red state]   (j) at (4, 0)     {\textbf{j}};
+	\node[red state]   (k) at (6, 2)     {\textbf{k}};
+	
+	\path[-, thick] (a) edge [red] node[black, left]{3}  (b);
+	\path[-, thick] (a) edge       node[above]{5}        (e);
+	\path[-, thick] (a) edge       node[right]{8}        (h);
+	\path[-, thick] (b) edge [red] node[black, above]{2} (c);
+	\path[-, thick] (b) edge       node[right]{5}        (e);
+	\path[-, thick] (b) edge       node[right]{7}        (f);
+	\path[-, thick] (c) edge [red] node[black, above]{3} (d);
+	\path[-, thick] (c) edge [red] node[black, right]{2} (f);
+	\path[-, thick] (c) edge       node[right]{6}        (g);
+	\path[-, thick] (d) edge       node[right]{7}        (g);
+	\path[-, thick] (d) edge [red] node[black, right]{2} (k);
+	\path[-, thick] (e) edge [red] node[black, above]{4} (f);
+	\path[-, thick] (e) edge       node[right]{7}        (h);
+	\path[-, thick] (f) edge [red] node[black, above]{4} (g);
+	\path[-, thick] (f) edge       node[left]{5}         (h);
+	\path[-, thick] (f) edge [red] node[black, right]{4} (i);
+	\path[-, thick] (f) edge [red] node[black, right]{3} (j);
+	\path[-, thick] (g) edge       node[right]{4}        (j);
+	\path[-, thick] (g) edge       node[above]{6}        (k);
+	\path[-, thick] (h) edge [red] node[black, above]{2} (i);
+	\path[-, thick] (i) edge       node[above]{6}        (j);
+	\path[-, thick] (j) edge       node[left]{5}         (k);
+	
+	\end{tikzpicture} 
+\end{figure}
+
+Since there are 11 vertices, and the number of edges added are 10, we must have generated our minimum spanning tree and we can halt the algorithm.
+
+\begin{enumerate}
+    \item The order edges are added is as follows:
+        $
+        \{\textbf{b}, \textbf{c}\},
+        \{\textbf{c}, \textbf{f}\},
+        \{\textbf{d}, \textbf{k}\},
+        \{\textbf{h}, \textbf{i}\},
+        \{\textbf{a}, \textbf{b}\},
+        \{\textbf{c}, \textbf{d}\},
+        \{\textbf{f}, \textbf{j}\}, \\
+        \{\textbf{e}, \textbf{f}\},
+        \{\textbf{f}, \textbf{g}\},
+        \{\textbf{f}, \textbf{i}\}.
+        $
+    \newpage
+    \item The minimum spanning tree is as follows:
+        \begin{figure}[H]
+            \centering
+            \begin{tikzpicture}
+            \tikzstyle{every state}=[
+                draw = black,
+                thick,
+                fill = white,
+                minimum size = 4mm,
+                circle
+            ]
+            
+            \node[every state]   (a) at (0, 0)     {\textbf{a}};
+            \node[every state]   (b) at (0, -2)    {\textbf{b}};
+            \node[every state]   (c) at (0, -4)    {\textbf{c}};
+            \node[every state]   (d) at (2, -6)    {\textbf{d}};
+            \node[every state]   (e) at (-4, -8)   {\textbf{e}};
+            \node[every state]   (f) at (-2, -6)   {\textbf{f}};
+            \node[every state]   (g) at (0, -8)    {\textbf{g}};
+            \node[every state]   (h) at (-2.66, -10)  {\textbf{h}};
+            \node[every state]   (i) at (-2.66, -8)   {\textbf{i}};
+            \node[every state]   (j) at (-1.33, -8)   {\textbf{j}};
+            \node[every state]   (k) at (2, -8)    {\textbf{k}};
+            
+            \path[-, thick] (a) edge node[black, right]{3} (b);
+            \path[-, thick] (b) edge node[black, right]{2} (c);
+            \path[-, thick] (c) edge node[black, above right]{3} (d);
+            \path[-, thick] (c) edge node[black, above left]{2} (f);
+            \path[-, thick] (d) edge node[black, right]{2} (k);
+            \path[-, thick] (e) edge node[black, above left]{4} (f);
+            \path[-, thick] (f) edge node[black, above right]{4} (g);
+            \path[-, thick] (f) edge node[black, left]{4} (i);
+            \path[-, thick] (f) edge node[black, right]{3} (j);
+            \path[-, thick] (h) edge node[black, right]{2} (i);
+            
+            \end{tikzpicture} 
+        \end{figure}
+    \newpage
+    \item It is not, because there were multiple edges with weight 4.
+    We made arbitrary decisions, which affected the composure of the minimum spanning tree.
+    We chose the edge $\{\textbf{f}, \textbf{g}\}$ to connect the vertex \textbf{g} to the tree, however, we could have chosen the edge $\{\textbf{g}, \textbf{j}\}$ which also has a weight of 4.
+    That would have changed the composure of the minimum spanning tree.
+    In that case, the minimum spanning would be as follows:
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}
+        \tikzstyle{every state}=[
+            draw = black,
+            thick,
+            fill = white,
+            minimum size = 4mm,
+            circle
+        ]
+        
+        \node[every state]   (a) at (0, 0)     {\textbf{a}};
+        \node[every state]   (b) at (0, -2)    {\textbf{b}};
+        \node[every state]   (c) at (0, -4)    {\textbf{c}};
+        \node[every state]   (d) at (2, -6)    {\textbf{d}};
+        \node[every state]   (e) at (-4, -8)   {\textbf{e}};
+        \node[every state]   (f) at (-2, -6)   {\textbf{f}};
+        \node[every state]   (g) at (0, -10)   {\textbf{g}};
+        \node[every state]   (h) at (-2, -10)  {\textbf{h}};
+        \node[every state]   (i) at (-2, -8)   {\textbf{i}};
+        \node[every state]   (j) at (0, -8)    {\textbf{j}};
+        \node[every state]   (k) at (2, -8)    {\textbf{k}};
+        
+        \path[-, thick] (a) edge node[black, right]{3} (b);
+        \path[-, thick] (b) edge node[black, right]{2} (c);
+        \path[-, thick] (c) edge node[black, above right]{3} (d);
+        \path[-, thick] (c) edge node[black, above left]{2} (f);
+        \path[-, thick] (d) edge node[black, right]{2} (k);
+        \path[-, thick] (e) edge node[black, above left]{4} (f);
+        \path[-, thick] (f) edge node[black, right]{4} (i);
+        \path[-, thick] (f) edge node[black, above right]{3} (j);
+        \path[-, thick] (g) edge node[black, right]{4} (j);
+        \path[-, thick] (h) edge node[black, right]{2} (i);
+
+        \end{tikzpicture} 
+    \end{figure}
+\end{enumerate}
 
 \end{document}
