@@ -107,6 +107,24 @@ Yes, it has many, one example being $(\textbf{a}, \textbf{b}, \textbf{c}, \textb
 
 \section*{Answer 2}
 
+The graphs $G$ and $H$ are isomorphic if and only if there exists a one-to-one and onto funtion $f$ such that the domain of $f$ is the set of vertices of $G$, the codomain of $f$ is the set of vertices of $H$, and for all pairs of vertices $u$ and $v$, $u$ and $v$ are adjacent in $G$ if and only if $f(u)$ and $f(v)$ are adjacent in $H$.
+\newline
+The graph $G$ can be represented by a pair $(V_G, E_G)$ where $V_G$ is the set of vertices, and $E_G$ is the set of edges.
+\begin{gather*}
+V_G = \{\textbf{a}, \textbf{b}, \textbf{c}, \textbf{d}, \textbf{e}\} \\
+E_G = \{\{\textbf{a}, \textbf{b}\}, \{\textbf{b}, \textbf{c}\}, \{\textbf{c}, \textbf{d}\}, \{\textbf{d}, \textbf{e}\}, \{\textbf{e}, \textbf{a}\}\}
+\end{gather*}
+The graph $H$ can be represented by a pair $(V_H, E_H)$ where $V_H$ is the set of vertices, and $E_H$ is the set of edges.
+\begin{gather*}
+V_H = \{\textbf{a'}, \textbf{b'}, \textbf{c'}, \textbf{d'}, \textbf{e'}\} \\
+E_H = \{\{\textbf{a'}, \textbf{b'}\}, \{\textbf{b'}, \textbf{c'}\}, \{\textbf{c'}, \textbf{d'}\}, \{\textbf{d'}, \textbf{e'}\}, \{\textbf{e'}, \textbf{a'}\}\}
+\end{gather*}
+Therefore, the function $f$ exists and is as follows:
+\begin{gather*}
+f:V_G \mapsto V_H,\ f = \{(\textbf{a}, \textbf{a'}), (\textbf{b}, \textbf{b'}), (\textbf{c}, \textbf{c'}), (\textbf{d}, \textbf{d'}), (\textbf{e}, \textbf{e'})\}
+\end{gather*}
+
+\newpage
 
 \section*{Answer 3}
 
